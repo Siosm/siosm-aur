@@ -1,0 +1,30 @@
+# Maintainer: Nicolas Cornu <nicolas.cornu@st.com>
+pkgname=proot
+_pkgname=PRoot
+pkgver=1.9
+pkgrel=1
+pkgdesc="chroot, mount --bind, and binfmt_misc without privilege/setup"
+arch=('i686' 'x86_64')
+url="http://cedric-vincent.github.com/PRoot/"
+license=('GPL')
+provides=('proot')
+conflicts=('proot-git')
+source=(${pkgname}-${pkgver}.tar.gz::https://github.com/cedric-vincent/PRoot/tarball/v${pkgver})
+md5sums=('080da4c87bf989739accaf0941ff3f44')
+build() {
+	cd ${srcdir}/cedric-vincent-${_pkgname}-*/src
+	make -f GNUmakefile
+}
+
+package() {
+	cd ${srcdir}/cedric-vincent-${_pkgname}-*/
+
+	install -m755 -d ${pkgdir}/usr/bin
+	install -m755 src/proot ${pkgdir}/usr/bin
+
+	install -m755 -d ${pkgdir}/usr/share/man/man1/
+	install -m644 doc/proot.1 ${pkgdir}/usr/share/man/man1/
+
+	#       install -d ${pkgdir}/usr/share/doc/proot/
+	#       install -m644 doc/* ${pkgdir}/usr/share/doc/proot/
+}
