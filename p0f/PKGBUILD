@@ -9,7 +9,7 @@ _p0ftools=y
 _p0ftools6=y
 
 pkgname=p0f
-pkgver=3.04b
+pkgver=3.05b
 pkgrel=1
 pkgdesc="Purely passive TCP/IP traffic fingerprinting tool "
 url="http://lcamtuf.coredump.cx/p0f3/"
@@ -18,7 +18,7 @@ license=('GPLv3')
 depends=('libpcap')
 install=p0f.install
 source=("http://lcamtuf.coredump.cx/p0f3/releases/$pkgname-$pkgver.tgz")
-md5sums=('2806f03e872b1acbc13f9e6836880fcb')
+md5sums=('edbc4b135b2646db3227a441268fd2e2')
 
 build() {
 	cd "${srcdir}"
@@ -54,10 +54,10 @@ package() {
 
 	## additional tools
 	if [ $_p0ftools = "y" ]; then
-		install -m744 ${srcdir}/${pkgname}-${pkgver}/tools/p0f-client ${pkgdir}/usr/sbin
-		install -m744 ${srcdir}/${pkgname}-${pkgver}/tools/p0f-sendsyn ${pkgdir}/usr/sbin
+		install -m744 tools/p0f-client ${pkgdir}/usr/sbin
+		install -m744 tools/p0f-sendsyn ${pkgdir}/usr/sbin
 	fi
 	if [ $_p0ftools6 = "y" ]; then
-		install -m744 ${srcdir}/${pkgname}-${pkgver}/tools/p0f-sendsyn6 ${pkgdir}/usr/sbin
+		install -m744 tools/p0f-sendsyn6 ${pkgdir}/usr/sbin
 	fi
 }
