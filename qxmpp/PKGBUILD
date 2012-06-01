@@ -1,0 +1,27 @@
+# Maintainer: Samir Faci <csgeek@esamir.com> 
+# Contributor: Timothée Ravier <tim@siosm.fr>
+
+pkgname=qxmpp
+pkgver=0.4.0
+pkgrel=1
+pkgdesc="QXmpp is a cross-platform C++ XMPP client library. It is based on Qt and C++."
+arch=('i686'  'x86_64')
+url="http://code.google.com/p/qxmpp/"
+license=('LGPL')
+depends=('qt')
+makedepends=()
+source=(http://qxmpp.googlecode.com/files/$pkgname-$pkgver.tar.gz)
+sha256sums=('407db8257a053b155c6faebf656af26346455ea88338d4df1279d925b3fd259d')
+
+build() {
+  cd "$srcdir/$pkgname-$pkgver"
+
+  qmake PREFIX=/usr
+  make
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+
+  make INSTALL_ROOT="$pkgdir/" install
+}
