@@ -16,7 +16,7 @@ sha256sums=('407db8257a053b155c6faebf656af26346455ea88338d4df1279d925b3fd259d')
 build() {
   cd "$srcdir/$pkgname-$pkgver"
 
-  qmake PREFIX=/usr
+  qmake PREFIX=/usr QXMPP_LIBRARY_TYPE=shared
   make
 }
 
