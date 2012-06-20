@@ -1,0 +1,34 @@
+# Maintainer : SpepS <dreamspepser at yahoo dot it>
+# Contributor: Luka Perkov <archlinux <at> lukaperkov <dOt> net>
+
+pkgname=libre
+pkgver=0.4.1
+pkgrel=1
+pkgdesc="A library for real-time communications with async IO support, a complete SIP stack with support for SDP, RTP/RTCP, STUN/TURN/ICE and DNS Client"
+arch=('i686' 'x86_64')
+url="http://www.creytiv.com/"
+license=('custom:BSD')
+depends=('openssl')
+source=("http://www.creytiv.com/pub/re-$pkgver.tar.gz")
+md5sums=('cff9e0d2bfec09c84e316faaf202809b')
+
+build() {
+  cd "$srcdir/re-$pkgver"
+  make EXTRA_CFLAGS=-D_GNU_SOURCE
+}
+
+package() {
+  cd "$srcdir/re-$pkgver"
+  make DESTDIR="$pkgdir" install
+
+  # license
+  install -Dm644 docs/COPYING \
+    "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+
+  # fix permission for static lib
+  chmod 644 "$pkgdir/usr/lib/$pkgname.a"
+
+  # add missing include
+  sed -i '7a#include <stdint.h>' \
+    "$pkgdir/usr/include/re/re_types.h"
+}

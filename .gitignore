@@ -10,6 +10,9 @@ dfc/dfc-*.tar.gz
 flamerobin/flamerobin-*-src.tar.gz
 glances/glances-*.tar.gz
 hydra/hydra-*-src.tar.gz
+jitsi/jitsi-src-*-build.*.zip
+kdeplasma-addons-applets-veromix/*_veromix.plasmoid
+libre/re-*.tar.gz
 lxc/lxc-*.tar.gz
 magicpoint-snapshot/mgp-snap-*.tar.gz
 magicpoint/magicpoint-*.tar.gz
@@ -22,6 +25,7 @@ perl-xml-dom/XML-DOM-*.tar.gz
 proot/proot-*.tar.gz
 qxmpp/qxmpp-*.tar.gz
 razor-qt/razorqt-*.tar.bz2
+restund/restund-*.tar.gz
 rng-tools/rng-tools-*.tar.gz
 scapy/scapy-*.tar.gz
 sunvox/sunvox-*.zip
