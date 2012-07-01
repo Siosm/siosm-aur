@@ -1,0 +1,50 @@
+# $Id: PKGBUILD 160261 2012-05-31 17:12:14Z andyrtr $
+# Maintainer: Jan de Groot <jgc@archlinux.org>
+# Contributor: Alexander Baldeck <alexander@archlinux.org>
+
+pkgname=pixman-git
+pkgver=20120701
+_realver=0.27.1
+pkgrel=1
+pkgdesc="The pixel-manipulation library for X and cairo"
+arch=(i686 x86_64)
+url="http://xorg.freedesktop.org"
+license=('custom')
+depends=('glibc')
+options=('!libtool')
+conflicts=('pixman')
+provides=('pixman=${_realver}')
+_gitroot='git://anongit.freedesktop.org/'
+_gitname='pixman'
+
+build() {
+  if [ -d ${srcdir}/${_gitname} ]; then
+    cd ${srcdir}/${_gitname} && git pull origin master
+    msg "The local files are updated."
+  else
+    cd ${srcdir} && git clone ${_gitroot}${_gitname}
+  fi
+
+  msg "GIT checkout done or server timeout"
+  msg "Starting make..."
+
+  rm -rf ${srcdir}/${_gitname}-build
+  cp -r ${srcdir}/${_gitname} ${srcdir}/${_gitname}-build
+  cd ${srcdir}/${_gitname}-build
+
+  ./autogen.sh --prefix=/usr
+  ./configure --prefix=/usr --disable-static
+  make
+}
+
+check() {
+  cd ${srcdir}/${_gitname}-build
+  make check
+}
+
+package() {
+  cd ${srcdir}/${_gitname}-build
+  make DESTDIR="${pkgdir}" install
+  install -m755 -d "${pkgdir}/usr/share/licenses/${pkgname}"
+  install -m644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/"
+}

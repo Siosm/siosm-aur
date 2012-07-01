@@ -1,5 +1,5 @@
 pkgname=libxkbcommon-git
-pkgver=20120528
+pkgver=20120701
 pkgrel=1
 pkgdesc="Translating evdev keycodes to keysyms, needed by Wayland."
 url="http://wayland.freedesktop.org/"
