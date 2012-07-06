@@ -1,0 +1,70 @@
+# $Id: PKGBUILD 162251 2012-06-24 12:43:16Z guillaume $
+# Maintainer: Guillaume ALAUX <guillaume@archlinux.org>
+# Contributor: Florian Pritz <bluewind at jabber dot ccc dot de>
+pkgname=('wireshark-editor-cli' 'wireshark-editor-gtk')
+pkgbase=wireshark
+pkgver=1.8.0
+pkgrel=2
+arch=('i686' 'x86_64')
+license=('GPL2')
+makedepends=('bison' 'flex' 'gtk2' 'krb5' 'libcap' 'libpcap' 'bash' 'gnutls'
+             'libgcrypt' 'lua' 'python')
+url="http://www.wireshark.org/"
+options=(!libtool)
+source=(http://www.wireshark.org/download/src/${pkgbase}-${pkgver}.tar.bz2)
+md5sums=('3eca81253800a0089d0f957e75853b05')
+
+build() {
+  cd "${srcdir}/${pkgbase}-${pkgver}"
+
+  ./autogen.sh
+  ./configure \
+      --prefix=/usr \
+      --with-ssl \
+      --with-zlib=yes \
+      --enable-packet-editor \
+      --with-lua
+  make all
+}
+
+package_wireshark-editor-cli() {
+  pkgdesc="A free network protocol analyzer for Unix/Linux and Windows - CLI version"
+  depends=('krb5' 'libcap' 'libpcap' 'bash' 'gnutls' 'libgcrypt' 'glib2' 'lua')
+  install=wireshark.install
+  conflicts=('wireshark' 'wireshark-cli')
+  provides=('wireshark-cli')
+
+  cd "${srcdir}/${pkgbase}-${pkgver}"
+
+  make DESTDIR="${pkgdir}" install
+
+  #wireshark uid group is 150
+  chgrp 150 "${pkgdir}/usr/bin/dumpcap"
+  chmod 754 "${pkgdir}/usr/bin/dumpcap"
+  rm "${pkgdir}/usr/bin/wireshark"
+
+  # Headers
+  install -dm755 ${pkgdir}/usr/include/${pkgbase}/{epan/{crypt,dfilter,dissectors,ftypes},wiretap,wsutil}
+
+  install -m644 color.h config.h register.h "${pkgdir}/usr/include/${pkgbase}"
+  for d in epan epan/crypt epan/dfilter epan/dissectors epan/ftypes wiretap wsutil; do
+    install -m644 ${d}/*.h ${pkgdir}/usr/include/${pkgbase}/${d}
+  done
+}
+
+package_wireshark-editor-gtk() {
+  pkgdesc="A free network protocol analyzer for Unix/Linux and Windows - GTK frontend"
+  depends=('gtk2' 'wireshark-editor-cli' 'desktop-file-utils' 'hicolor-icon-theme')
+  install=wireshark-gtk.install
+  replaces=(wireshark)
+  conflicts=('wireshark' 'wireshark-gtk')
+  provides=('wireshark-gtk')
+
+  cd "${srcdir}/${pkgbase}-${pkgver}"
+
+  install -Dm755 .libs/wireshark "${pkgdir}/usr/bin/wireshark"
+  for d in 16 32 48; do
+      install -Dm644 image/hi${d}-app-wireshark.png "${pkgdir}/usr/share/icons/hicolor/${d}x${d}/apps/wireshark.png"
+  done
+  install -Dm644 wireshark.desktop "${pkgdir}/usr/share/applications/wireshark.desktop"
+}
