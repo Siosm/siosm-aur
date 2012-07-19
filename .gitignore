@@ -17,6 +17,7 @@ lxc/lxc-*.tar.gz
 magicpoint-snapshot/mgp-snap-*.tar.gz
 magicpoint/magicpoint-*.tar.gz
 makepasswd/makepasswd_*.orig.tar.gz
+metasploit/framework-*.tar.bz2
 nmapsi4/nmapsi4-*.tar.bz2
 p0f/p0f-*.tgz
 package-query/package-query-*.tar.gz
@@ -27,6 +28,8 @@ qxmpp/qxmpp-*.tar.gz
 razor-qt/razorqt-*.tar.bz2
 restund/restund-*.tar.gz
 rng-tools/rng-tools-*.tar.gz
+ruby-msgpack/msgpack-*.gem
+ruby-pg/pg-*.gem
 scapy/scapy-*.tar.gz
 sunvox/sunvox-*.zip
 traceroute-for-linux/traceroute-*.tar.gz
