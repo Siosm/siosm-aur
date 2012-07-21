@@ -6,9 +6,11 @@ pkg/
 
 *~
 
+cinnamon/cinnamon_*.tar.gz
 dfc/dfc-*.tar.gz
 flamerobin/flamerobin-*-src.tar.gz
 glances/glances-*.tar.gz
+gnome-menus2/gnome-menus-*.tar.bz2
 hydra/hydra-*-src.tar.gz
 jitsi/jitsi-src-*-build.*.zip
 kdeplasma-addons-applets-veromix/*_veromix.plasmoid
@@ -18,6 +20,7 @@ magicpoint-snapshot/mgp-snap-*.tar.gz
 magicpoint/magicpoint-*.tar.gz
 makepasswd/makepasswd_*.orig.tar.gz
 metasploit/framework-*.tar.bz2
+muffin-wm/muffin_*.tar.gz
 nmapsi4/nmapsi4-*.tar.bz2
 p0f/p0f-*.tgz
 package-query/package-query-*.tar.gz
