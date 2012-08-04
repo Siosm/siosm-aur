@@ -1,8 +1,8 @@
 # Maintainer: Sabart Otto - Seberm <seberm[at]gmail[dot]com>
 
 pkgname=metasploit
-pkgver=4.3.0
-pkgrel=2
+pkgver=4.4.0
+pkgrel=1
 pkgdesc="An advanced open-source platform for developing, testing, and using exploit code"
 depends=('ruby' 'libpcap' 'ruby-pg' 'ruby-msgpack')
 optdepends=('java-runtime' 'dradis') #sqlite
@@ -15,15 +15,15 @@ url="http://www.metasploit.com/"
 license=('BSD')
 arch=('i686' 'x86_64')
 
-md5sums=('d5607fba7f6fff8b5e5c19aacde4064e'
-         '912c21a795ac6116a8c13bee876ddf99')
+sha1sums=('4188c1727364fff857ff1a58cb3f95a5f376cfb1'
+         '823841fc8f506e93e92a317ea82ea7f127bb5653')
 
 build() {
 	cd $srcdir/msf3
 
 	echo "Installing the license file..."
 	mkdir -p $pkgdir/opt $pkgdir/etc/profile.d $pkgdir/usr/share/licenses/$pkgname
-	install -m444 "README" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE"
+	install -m444 "COPYING" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE"
 
 	mv $srcdir/msf3 $pkgdir/opt/$pkgname
 	cp $startdir/metasploit.sh $pkgdir/etc/profile.d
