@@ -23,6 +23,7 @@ makepasswd/makepasswd_*.orig.tar.gz
 metasploit/framework-*.tar.bz2
 muffin-wm/muffin_*.tar.gz
 nmapsi4/nmapsi4-*.tar.bz2
+otf-source-sans-pro/SourceSansPro_FontsOnly-*.zip
 p0f/p0f-*.tgz
 package-query/package-query-*.tar.gz
 paros/paros-*-unix.zip
@@ -37,6 +38,7 @@ ruby-pg/pg-*.gem
 scapy/scapy-*.tar.gz
 sunvox/sunvox-*.zip
 traceroute-for-linux/traceroute-*.tar.gz
+ttf-source-sans-pro/SourceSansPro_FontsOnly-*.zip
 twisted-web2/TwistedWeb2-*.tar.bz2
 volatility/volatility-*.tar.gz
 wireshark-editor/wireshark-*.tar.bz2
