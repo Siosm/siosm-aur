@@ -6,7 +6,7 @@ pkg/
 
 *~
 
-cinnamon/cinnamon_*.tar.gz
+cinnamon/cinnamon*.tar.gz
 dfc/dfc-*.tar.gz
 flamerobin/flamerobin-*-src.tar.gz
 glances/glances-*.tar.gz
@@ -21,7 +21,7 @@ magicpoint-snapshot/mgp-snap-*.tar.gz
 magicpoint/magicpoint-*.tar.gz
 makepasswd/makepasswd_*.orig.tar.gz
 metasploit/framework-*.tar.bz2
-muffin-wm/muffin_*.tar.gz
+muffin-wm/muffin-wm-*.tar.gz
 nmapsi4/nmapsi4-*.tar.bz2
 otf-source-sans-pro/SourceSansPro_FontsOnly-*.zip
 p0f/p0f-*.tgz
