@@ -1,19 +1,22 @@
 # $Id: PKGBUILD 160261 2012-05-31 17:12:14Z andyrtr $
-# Maintainer: Jan de Groot <jgc@archlinux.org>
+# AUR Maintainer: Timothée Ravier <tim@siosm.fr>
+# Contributor: Jan de Groot <jgc@archlinux.org>
 # Contributor: Alexander Baldeck <alexander@archlinux.org>
 
 pkgname=pixman-git
-pkgver=20120701
+_realname=pixman
+pkgver=20120920
 _realver=0.27.1
 pkgrel=1
 pkgdesc="The pixel-manipulation library for X and cairo"
 arch=(i686 x86_64)
-url="http://xorg.freedesktop.org"
+url="http://pixman.org/"
 license=('custom')
 depends=('glibc')
 options=('!libtool')
 conflicts=('pixman')
 provides=('pixman=${_realver}')
+
 _gitroot='git://anongit.freedesktop.org/'
 _gitname='pixman'
 
@@ -45,6 +48,6 @@ check() {
 package() {
   cd ${srcdir}/${_gitname}-build
   make DESTDIR="${pkgdir}" install
-  install -m755 -d "${pkgdir}/usr/share/licenses/${pkgname}"
-  install -m644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/"
+  install -m755 -d "${pkgdir}/usr/share/licenses/${_realname}"
+  install -m644 COPYING "${pkgdir}/usr/share/licenses/${_realname}/"
 }
