@@ -33,6 +33,7 @@ qxmpp/qxmpp-*.tar.gz
 razor-qt/razorqt-*.tar.bz2
 restund/restund-*.tar.gz
 rng-tools/rng-tools-*.tar.gz
+ruby-bundler/bundler-*.gem
 ruby-msgpack/msgpack-*.gem
 ruby-pg/pg-*.gem
 scapy/scapy-*.tar.gz
