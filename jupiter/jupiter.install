@@ -1,0 +1,44 @@
+post_install() {
+
+  if [ ! "$(grep jupiter /etc/group)" ]; then
+        /usr/sbin/groupadd jupiter
+  fi
+
+  chown -R root:jupiter /usr/lib/jupiter
+  chown -R root:jupiter /var/jupiter
+
+  if [ -e "/usr/lib/jupiter/scripts/jupiter" ]; then
+        /usr/lib/jupiter/scripts/jupiter 2>/dev/null || true
+  fi
+  
+  #if [ -e "/etc/pm/sleep.d/00-jupiter-wifi" ]; then
+  #      rm -f /etc/pm/sleep.d/00-jupiter-wifi 2>/dev/null || true
+  #fi
+
+  if [ -e /sys/fs/cgroup/systemd ]; then
+    systemctl restart acpid.service 2>/dev/null
+  else
+    /etc/rc.d/acpid restart 2>/dev/null
+  fi
+
+  cat <<EOF
+==> Please add your user and any users who will use jupiter to the jupiter
+==> group (gpasswd -a user jupiter)
+==> If Performance Modes can't be setted, add in your /etc/rc.conf the appropriate module:
+==> MODULES=(acpi-cpufreq ...)
+EOF
+}
+
+post_upgrade() {
+  # clean of sudoers past appends
+  grep jupiter /etc/sudoers >/dev/null 2>&1 && sed '/%jupiter/d' -i /etc/sudoers
+  post_install
+}
+
+post_remove() {
+  /usr/sbin/groupdel jupiter
+  if [ -d "/var/jupiter" ]; then
+        rm -R /var/jupiter
+  fi
+}
+

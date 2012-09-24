@@ -13,6 +13,7 @@ glances/glances-*.tar.gz
 gnome-menus2/gnome-menus-*.tar.bz2
 hydra/hydra-*-src.tar.gz
 jitsi/jitsi-src-*-build.*.zip
+jupiter/jupiter-*.noarch.rpm
 kdeplasma-addons-applets-veromix/*_veromix.plasmoid
 kwooty/kwooty-*.tar.gz
 libre/re-*.tar.gz
