@@ -8,6 +8,7 @@ pkg/
 
 cinnamon/cinnamon*.tar.gz
 dfc/dfc-*.tar.gz
+dnsenum/dnsenum*.tar.gz
 flamerobin/flamerobin-*-src.tar.gz
 glances/glances-*.tar.gz
 gnome-menus2/gnome-menus-*.tar.bz2
@@ -28,6 +29,7 @@ otf-source-sans-pro/SourceSansPro_FontsOnly-*.zip
 p0f/p0f-*.tgz
 package-query/package-query-*.tar.gz
 paros/paros-*-unix.zip
+perl-net-netmask/Net-Netmask-*.tar.gz
 perl-xml-dom/XML-DOM-*.tar.gz
 proot/proot-*.tar.gz
 qxmpp/qxmpp-*.tar.gz
