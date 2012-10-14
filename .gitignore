@@ -6,6 +6,7 @@ pkg/
 
 *~
 
+alchemy/Alchemy-*.tar.gz
 cinnamon/cinnamon*.tar.gz
 dfc/dfc-*.tar.gz
 dnsenum/dnsenum*.tar.gz
