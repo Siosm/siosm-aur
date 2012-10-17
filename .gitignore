@@ -18,6 +18,8 @@ jitsi/jitsi-src-*-build.*.zip
 jupiter/jupiter-*.noarch.rpm
 kdeplasma-addons-applets-veromix/*_veromix.plasmoid
 kwooty/kwooty-*.tar.gz
+libpng12/libpng-*-apng.patch.gz
+libpng12/libpng-*.tar.xz
 libre/re-*.tar.gz
 lxc/lxc-*.tar.gz
 magicpoint-snapshot/mgp-snap-*.tar.gz
