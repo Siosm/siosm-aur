@@ -54,5 +54,6 @@ volatility/volatility-*.tar.gz
 wayland/wayland-*.tar.xz
 weston/weston-*.tar.xz
 wireshark-editor/wireshark-*.tar.bz2
+wt-lite/wt-*.tar.gz
 yaourt/yaourt-*.tar.gz
 
