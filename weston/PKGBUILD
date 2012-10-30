@@ -1,45 +1,28 @@
 # Maintainer: Joel Teichroeb <joel@teichroeb.net>
-# Contributor: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
 
-pkgname=weston-git
-pkgver=20121030
-pkgrel=1
+pkgname=weston
+pkgver=1.0.0
+pkgrel=2
 pkgdesc="A modern display server."
 arch=(i686 x86_64)
 url="http://wayland.freedesktop.org"
-provides=("weston=1.0.0")
-conflicts=('weston')
 license=('MIT')
-depends=('libxkbcommon-git' 'wayland-git' 'mesa-full-wayland' 'cairo-gl-git' 'poppler-glib' 'mtdev' 'libxcursor' 'pixman' 'glu')
+depends=('libxkbcommon' 'wayland' 'mesa-full-wayland' 'cairo-gl' 'poppler-glib' 'mtdev' 'libxcursor' 'glu')
+source=(http://wayland.freedesktop.org/releases/${pkgname}-${pkgver}.tar.xz)
+sha1sums=(b179dff28403d05e2a4f1a1846772bb83b36b51a)
 options=(!libtool)
 
-_gitroot="git://anongit.freedesktop.org/wayland/weston"
-_gitname="weston"
-
 build() {
-	msg "Connecting to git.freedesktop.org GIT server...."
-
-	if [ -d "$srcdir/$_gitname" ] ; then
-		cd $_gitname && git pull origin master
-		msg "The local files are updated."
-	else
-		git clone $_gitroot --depth 1
-	fi
-
-	msg "GIT checkout done or server timeout"
-	msg "Starting make..."
-
-	rm -rf "${srcdir}/$_gitname-build"
-	cp -r "${srcdir}/$_gitname" "${srcdir}/$_gitname-build"
-	cd "${srcdir}/$_gitname-build"
-
-	./autogen.sh --prefix=/usr --libexecdir=/usr/lib/weston
+	cd ${srcdir}/${pkgname}-${pkgver}
+	./configure --prefix=/usr
 	make
 }
 
 package() {
-	cd "${srcdir}/$_gitname-build"
+	cd ${srcdir}/${pkgname}-${pkgver}
 	make DESTDIR="${pkgdir}" install
+
+	install -m 755 -D src/weston "${pkgdir}/usr/bin/weston"
 
 	install -m 755 -D clients/clickdot "${pkgdir}/usr/bin/weston-clickdot"
 	install -m 755 -D clients/dnd "${pkgdir}/usr/bin/weston-dnd"
@@ -56,4 +39,3 @@ package() {
 	install -m 755 -D clients/smoke "${pkgdir}/usr/bin/weston-smoke"
 	install -m 755 -D clients/view "${pkgdir}/usr/bin/weston-view"
 }
-

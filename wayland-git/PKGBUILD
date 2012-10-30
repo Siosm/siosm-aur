@@ -1,15 +1,17 @@
+# Maintainer: Joel Teichroeb <joel@teichroeb.net>
+
 pkgname=wayland-git
-pkgver=20120918
+pkgver=20121030
 pkgrel=1
 pkgdesc="A modern display server."
 arch=(i686 x86_64)
 url="http://wayland.freedesktop.org"
-provides=("libwayland-git=${pkgver}" "wayland=0.95")
+provides=("libwayland-git=${pkgver}" "wayland=1.0.0")
 conflicts=('libwayland-git' 'wayland')
 replaces=('libwayland-git')
 license=('MIT')
-depends=('expat' 'libffi')
-options=(!libtool)
+depends=('libffi')
+makedepends=('git' 'expat')
 
 _gitroot="git://anongit.freedesktop.org/wayland/wayland"
 _gitname="wayland"
@@ -30,7 +32,7 @@ build() {
 	rm -rf ${srcdir}/$_gitname-build
 	cp -r ${srcdir}/$_gitname ${srcdir}/$_gitname-build
 	cd ${srcdir}/$_gitname-build
-	./autogen.sh --prefix=/usr
+	./autogen.sh --prefix=/usr --disable-documentation
 	make
 }
 

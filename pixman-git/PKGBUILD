@@ -1,11 +1,11 @@
 # $Id: PKGBUILD 160261 2012-05-31 17:12:14Z andyrtr $
 # AUR Maintainer: Timothée Ravier <tim@siosm.fr>
-# Contributor: Jan de Groot <jgc@archlinux.org>
+# Core Maintainer: Jan de Groot <jgc@archlinux.org>
 # Contributor: Alexander Baldeck <alexander@archlinux.org>
 
 pkgname=pixman-git
 _realname=pixman
-pkgver=20120920
+pkgver=20121028
 _realver=0.27.1
 pkgrel=1
 pkgdesc="The pixel-manipulation library for X and cairo"
@@ -17,15 +17,17 @@ options=('!libtool')
 conflicts=('pixman')
 provides=('pixman=${_realver}')
 
-_gitroot='git://anongit.freedesktop.org/'
+_gitroot='git://anongit.freedesktop.org/pixman'
 _gitname='pixman'
 
 build() {
   if [ -d ${srcdir}/${_gitname} ]; then
-    cd ${srcdir}/${_gitname} && git pull origin master
-    msg "The local files are updated."
+	cd ${srcdir}/${_gitname}
+	git pull origin master
+	msg "The local files are updated."
   else
-    cd ${srcdir} && git clone ${_gitroot}${_gitname}
+	cd ${srcdir}
+	git clone ${_gitroot} --depth=1
   fi
 
   msg "GIT checkout done or server timeout"
