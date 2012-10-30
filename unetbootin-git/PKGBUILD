@@ -26,8 +26,9 @@ build() {
   cd ${srcdir}
 
   if [[ -d ${_gitname} ]]; then
-    cd ${_gitname} && git pull origin 
-    cd ..
+	cd ${_gitname}
+	git pull origin master
+	cd ..
   else
     git clone --depth 1 ${_gitroot}
   fi

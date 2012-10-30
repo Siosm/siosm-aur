@@ -20,10 +20,10 @@ build() {
 
   if [ -e $_gitname ] ; then
     cd $_gitname
-    git pull || return 1
+    git pull origin master || return 1
     cd ..
   else
-    git clone $_gitroot $_gitname || return 1
+    git clone $_gitroot $_gitname --depth=1 || return 1
   fi
 
   cd $srcdir/${_gitname}
