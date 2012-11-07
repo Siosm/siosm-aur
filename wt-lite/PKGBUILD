@@ -1,19 +1,19 @@
-# $Id: PKGBUILD 79020 2012-10-29 05:20:29Z svenstaro $
+# $Id: PKGBUILD 79248 2012-11-01 18:27:55Z svenstaro $
 # Maintainer: Sergej Pupykin <pupykin.s+arch@gmail.com>
 # Maintainer: Sven-Hendrik Haase <sh@lutzhaase.com>
 # Contributor: Denis Martinez <deuns.martinez@gmail.com>
 
 pkgname=wt-lite
 _pkgname=wt
-pkgver=3.2.3rc2
-_pkgver=3.2.3-rc2
+pkgver=3.2.3
+_pkgver=3.2.3
 pkgrel=1
 pkgdesc="a C++ library and application server for developing and deploying web applications - Lite version with less dependencies"
 arch=('i686' 'x86_64')
 url="http://www.webtoolkit.eu/"
 license=('GPL')
-replaces=('wt=3.2.3rc2')
-provides=('wt=3.2.3rc2')
+replaces=('wt=3.2.3')
+provides=('wt=3.2.3')
 conflicts=('wt')
 depends=('boost-libs')
 makedepends=('boost' 'cmake>=2.8' 'zlib' 'fcgi')
@@ -22,7 +22,7 @@ optdepends=('openssl: for SSL support in built-in webserver'
 	    'fcgi: for FastCGI support')
 backup=('etc/wt/wt_config.xml')
 source=(http://downloads.sourceforge.net/witty/${_pkgname}-${_pkgver}.tar.gz)
-md5sums=('64097d4d5fe346fe9a09f5789ec54598')
+md5sums=('58922ba5d68104880adbe2e022132fb5')
 
 build() {
   cd ${srcdir}/${_pkgname}-${_pkgver}
