@@ -11,6 +11,7 @@ cairo-gl/cairo-*.tar.xz
 cinnamon/cinnamon*.tar.gz
 dfc/dfc-*.tar.gz
 dnsenum/dnsenum*.tar.gz
+flacon/flacon-*.tgz
 flamerobin/flamerobin-*-src.tar.gz
 glances/glances-*.tar.gz
 gnome-menus2/gnome-menus-*.tar.bz2
