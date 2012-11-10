@@ -1,7 +1,7 @@
 # Maintainer: Joel Teichroeb <joel@teichroeb.net>
 
 pkgname=wayland-git
-pkgver=20121030
+pkgver=20121110
 pkgrel=1
 pkgdesc="A modern display server."
 arch=(i686 x86_64)

@@ -4,14 +4,14 @@
 # Contributor: Disfido <disfido@gmail.com>
 
 pkgname=cairo-gl-git
-pkgver=20121030
+pkgver=20121110
 _realver=1.12.6
 pkgrel=1
 pkgdesc="Cairo vector graphics library with GL and EGL enabled"
 arch=(i686 x86_64)
 license=('LGPL' 'MPL')
 url="http://cairographics.org/"
-depends=('libpng' 'libxrender' 'fontconfig' 'pixman-git' 'libgl' 'libegl' 'khrplatform-devel')
+depends=('libpng' 'libxrender' 'fontconfig' 'pixman' 'libgl' 'libegl' 'khrplatform-devel')
 makedepends=('pkgconfig' 'gtk-doc' 'automake' 'autoconf' 'git')
 options=('!libtool')
 conflicts=('cairo' 'cairo-git' 'cairo-xcb')

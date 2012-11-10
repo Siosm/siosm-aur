@@ -2,7 +2,7 @@
 # Contributor: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
 
 pkgname=weston-git
-pkgver=20121030
+pkgver=20121110
 pkgrel=1
 pkgdesc="A modern display server."
 arch=(i686 x86_64)
@@ -42,13 +42,13 @@ package() {
 	make DESTDIR="${pkgdir}" install
 
 	install -m 755 -D clients/clickdot "${pkgdir}/usr/bin/weston-clickdot"
+	install -m 755 -D clients/cliptest "${pkgdir}/usr/bin/weston-cliptest"
 	install -m 755 -D clients/dnd "${pkgdir}/usr/bin/weston-dnd"
 	install -m 755 -D clients/editor "${pkgdir}/usr/bin/weston-editor"
 	install -m 755 -D clients/eventdemo "${pkgdir}/usr/bin/weston-eventdemo"
 	install -m 755 -D clients/flower "${pkgdir}/usr/bin/weston-flower"
 	install -m 755 -D clients/gears "${pkgdir}/usr/bin/weston-gears"
 	install -m 755 -D clients/image "${pkgdir}/usr/bin/weston-image"
-	install -m 755 -D clients/keyboard "${pkgdir}/usr/bin/weston-keyboard"
 	install -m 755 -D clients/resizor "${pkgdir}/usr/bin/weston-resizor"
 	install -m 755 -D clients/simple-egl "${pkgdir}/usr/bin/weston-simple-egl"
 	install -m 755 -D clients/simple-shm "${pkgdir}/usr/bin/weston-simple-shm"
