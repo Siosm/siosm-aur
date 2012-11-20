@@ -1,16 +1,19 @@
 # Maintainer: M0Rf30
+# Contributor: unifiedlinux
 
 pkgname=cinnamon
-pkgver=1.6.0
-pkgrel=2
+pkgver=1.6.7
+pkgrel=1
 pkgdesc="Linux desktop which provides advanced innovative features and a traditional user experience"
 arch=('i686' 'x86_64')
 url="http://cinnamon.linuxmint.com/"
 license=('GPL')
 depends=('accountsservice' 'caribou' 'dbus-glib' 'folks' 'gjs' 'gnome-bluetooth' 'gnome-desktop' 'gnome-themes-standard' 'gnome-menus' 
-'gnome-panel' 'gnome-session' 'gnome-settings-daemon' 'libcroco' 'libgnomekbd' 'libpulse' 'metacity' 'muffin-wm' 'nautilus' 'networkmanager' 
-'notification-daemon' 'python2' 'python2-gconf' 'telepathy-logger' 'gnome-menus2' 'gnome-control-center' 'python2-lxml' 'python-imaging')
+'gnome-panel' 'gnome-session' 'gnome-settings-daemon' 'libcroco' 'libgnomekbd' 'libpulse' 'muffin-wm' 'networkmanager' 
+'notification-daemon' 'python2' 'python2-gconf' 'telepathy-logger' 'gnome-menus2' 'gnome-control-center' 'python2-lxml' 'python2-imaging')
 makedepends=('gnome-common' 'intltool')
+optdepends=('nemo-fm: the official Cinnamon file manager (a Nautilus fork)'
+	    'nautilus: the official Gnome file manager')
 provides=('cinnamon')
 conflicts=('cinnamon-git')
 options=('!libtool' '!emptydirs')
@@ -18,11 +21,16 @@ install=${pkgname}.install
 source=("$pkgname.tar.gz::https://github.com/linuxmint/Cinnamon/tarball/$pkgver")
 
 build() {
+  LDFLAGS="/usr/lib/libgthread-2.0.so"
+  CFLAGS="${CFLAGS} -Wno-deprecated-declarations"
   cd ${srcdir}/linuxmint-Cinnamon*
- 
-  ./autogen.sh --prefix=/usr --sysconfdir=/etc --libexecdir=/usr/lib/cinnamon  \
+  
+  sed -i 's/\ --warn-all\ --warn-error//' src/Makefile.am
+
+  ./autogen.sh --prefix=/usr --sysconfdir=/etc --libexecdir=/usr/lib/cinnamon \
                --localstatedir=/var --disable-static --disable-schemas-compile \
-               --disable-schemas-install --enable-compile-warnings=yes 
+               --disable-schemas-install --enable-compile-warnings=yes \
+	       --with-session-tracking=systemd
  
   make GLIB_COMPILE_SCHEMAS=glib-compile-schemas
 }
@@ -45,4 +53,4 @@ package() {
   cp $pkgdir/usr/share/xsessions/*.desktop $pkgdir/usr/share/apps/kdm/sessions/
 }
 
-md5sums=('236c4007c0b27286b966ba0d8d768f1a')
+md5sums=('ea73c6367d43d82c61f977477bf0c08c')
