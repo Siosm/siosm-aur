@@ -7,7 +7,7 @@ pkgname=wt-lite
 _pkgname=wt
 pkgver=3.2.3
 _pkgver=3.2.3
-pkgrel=1
+pkgrel=2
 pkgdesc="a C++ library and application server for developing and deploying web applications - Lite version with less dependencies"
 arch=('i686' 'x86_64')
 url="http://www.webtoolkit.eu/"
@@ -27,9 +27,8 @@ md5sums=('58922ba5d68104880adbe2e022132fb5')
 build() {
   cd ${srcdir}/${_pkgname}-${_pkgver}
 
-  mkdir -p build
-  cd build
-      #-DCMAKE_EXE_LINKER_FLAGS="-lboost_random" \
+  [[ -d build ]] && rm -r build
+  mkdir -p build && cd build
   cmake \
       -DCONNECTOR_HTTP=ON \
       -DCONNECTOR_FCGI=ON \
