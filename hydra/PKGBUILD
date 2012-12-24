@@ -6,15 +6,16 @@
 # Contributor: Jawmare <victor2008 at gmail dot com>
 
 pkgname=hydra
-pkgver=7.3
-pkgrel=2
+pkgver=7.4.1
+pkgrel=1
 pkgdesc="A very fast network logon cracker which support many different services."
 arch=('i686' 'x86_64')
 url="http://www.thc.org/thc-hydra/"
 license="GPL3"
-depends=('krb5' 'openssl' 'postgresql-libs' 'subversion' 'apr' 'apr-util' 'libssh' 'flamerobin')
-source=("http://freeworld.thc.org/releases/$pkgname-$pkgver-src.tar.gz")
-md5sums=('ac17b395d6af5ee56726b4d3b24580fb')
+depends=('apr' 'apr-util' 'flamerobin' 'krb5' 'libidn' 'libmysqlclient'
+         'libssh' 'openssl' 'postgresql-libs' 'subversion')
+source=("http://www.thc.org/releases/$pkgname-$pkgver.tar.gz")
+sha256sums=('0ad23a8166314d50a02138dcd973c0db2f9916fb73432e168b603331e9d665ee')
 
 build() {
 	cd $srcdir/$pkgname-$pkgver
@@ -25,10 +26,12 @@ build() {
 
 package() {
 	cd $pkgdir
-	mkdir -p usr/bin usr/share/man/man1 usr/man/man1 usr/etc
+	install -d -m 755 usr/bin usr/man/man1 usr/share/man/man1 usr/etc
 
 	cd $srcdir/$pkgname-$pkgver
 	make PREFIX=$pkgdir/usr install
-	mv $pkgdir/usr/man/man1/* $pkgdir/usr/share/man/man1/
+
+	cd $pkgdir/usr/
+	mv man/man1/* share/man/man1/
 	rm -rf $pkgdir/usr/man
 }
