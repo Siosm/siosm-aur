@@ -11,6 +11,7 @@ cairo-gl/cairo-*.tar.xz
 cinnamon/cinnamon*.tar.gz
 dfc/dfc-*.tar.gz
 dnsenum/dnsenum*.tar.gz
+firewalld/firewalld-*.tar.bz2
 flacon/flacon-*.tgz
 flamerobin/flamerobin-*-src.tar.gz
 glances/glances-*.tar.gz
@@ -42,6 +43,7 @@ paros/paros-*-unix.zip
 perl-net-netmask/Net-Netmask-*.tar.gz
 perl-xml-dom/XML-DOM-*.tar.gz
 proot/proot-*.tar.gz
+python2-slip/python-slip-*.tar.bz2
 qxmpp/qxmpp-*.tar.gz
 razor-qt/razorqt-*.tar.bz2
 restund/restund-*.tar.gz
