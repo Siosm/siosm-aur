@@ -1,7 +1,7 @@
 # Maintainer: Joel Teichroeb <joel@teichroeb.net>
 
 pkgname=wayland-git
-pkgver=20121110
+pkgver=20130131
 pkgrel=1
 pkgdesc="A modern display server."
 arch=(i686 x86_64)
@@ -12,6 +12,7 @@ replaces=('libwayland-git')
 license=('MIT')
 depends=('libffi')
 makedepends=('git' 'expat')
+options=(!libtool)
 
 _gitroot="git://anongit.freedesktop.org/wayland/wayland"
 _gitname="wayland"

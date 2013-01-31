@@ -2,7 +2,7 @@
 # Contributor: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
 
 pkgname=weston-git
-pkgver=20121110
+pkgver=20130131
 pkgrel=1
 pkgdesc="A modern display server."
 arch=(i686 x86_64)
@@ -10,7 +10,7 @@ url="http://wayland.freedesktop.org"
 provides=("weston=1.0.0")
 conflicts=('weston')
 license=('MIT')
-depends=('libxkbcommon-git' 'wayland-git' 'mesa-full-wayland' 'cairo-gl-git' 'poppler-glib' 'mtdev' 'libxcursor' 'pixman' 'glu')
+depends=('libxkbcommon' 'wayland-git' 'libegl-wayland' 'cairo-gl-git' 'poppler-glib' 'mtdev' 'libxcursor' 'pixman' 'glu')
 options=(!libtool)
 
 _gitroot="git://anongit.freedesktop.org/wayland/weston"
