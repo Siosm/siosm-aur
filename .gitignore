@@ -22,6 +22,8 @@ jupiter/jupiter-*.noarch.rpm
 k9copy/k9copy-*.tar.gz
 kdeplasma-addons-applets-veromix/*_veromix.plasmoid
 kwooty/kwooty-*.tar.gz
+libegl-wayland/LICENSE
+libegl-wayland/MesaLib-*.tar.bz2
 libpng12/libpng-*-apng.patch.gz
 libpng12/libpng-*.tar.xz
 libre/re-*.tar.gz
