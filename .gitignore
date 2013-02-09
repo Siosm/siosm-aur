@@ -8,14 +8,11 @@ pkg/
 
 alchemy/Alchemy-*.tar.gz
 cairo-gl/cairo-*.tar.xz
-cinnamon/cinnamon*.tar.gz
 dfc/dfc-*.tar.gz
 dnsenum/dnsenum*.tar.gz
 firewalld/firewalld-*.tar.bz2
 flacon/flacon-*.tgz
 flamerobin/flamerobin-*-src.tar.gz
-glances/glances-*.tar.gz
-gnome-menus2/gnome-menus-*.tar.bz2
 hydra/hydra-*.tar.gz
 jitsi/jitsi-src-*-build.*.zip
 jupiter/jupiter-*.noarch.rpm
@@ -24,17 +21,12 @@ kdeplasma-addons-applets-veromix/*_veromix.plasmoid
 kwooty/kwooty-*.tar.gz
 libegl-wayland/LICENSE
 libegl-wayland/MesaLib-*.tar.bz2
-libpng12/libpng-*-apng.patch.gz
-libpng12/libpng-*.tar.xz
 libre/re-*.tar.gz
-libxkbcommon/libxkbcommon-*.tar.bz2
-lxc/lxc-*.tar.gz
 magicpoint-snapshot/mgp-snap-*.tar.gz
 magicpoint/magicpoint-*.tar.gz
 makepasswd/makepasswd_*.orig.tar.gz
 mdk3/mdk3-*.tar.bz2
 metasploit/framework-*.tar.bz2
-muffin-wm/muffin-wm-*.tar.gz
 nemo-fm-*.tar.gz
 netexpect-*.tar.bz2
 nmapsi4/nmapsi4-*.tar.bz2
@@ -49,7 +41,6 @@ python2-slip/python-slip-*.tar.bz2
 qxmpp/qxmpp-*.tar.gz
 razor-qt/razorqt-*.tar.bz2
 restund/restund-*.tar.gz
-rng-tools/rng-tools-*.tar.gz
 ruby-bundler/bundler-*.gem
 ruby-msgpack/msgpack-*.gem
 ruby-pg/pg-*.gem
