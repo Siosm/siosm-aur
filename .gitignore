@@ -45,7 +45,6 @@ ruby-msgpack/msgpack-*.gem
 ruby-pg/pg-*.gem
 scapy/scapy-*.tar.gz
 sunvox/sunvox-*.zip
-traceroute-for-linux/traceroute-*.tar.gz
 ttf-source-sans-pro/SourceSansPro_FontsOnly-*.zip
 twisted-web2/TwistedWeb2-*.tar.bz2
 volatility/volatility-*.tar.gz
