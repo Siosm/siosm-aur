@@ -9,7 +9,6 @@ pkg/
 alchemy/Alchemy-*.tar.gz
 dfc/dfc-*.tar.gz
 dnsenum/dnsenum*.tar.gz
-firewalld/firewalld-*.tar.bz2
 flacon/flacon-*.tgz
 flamerobin/flamerobin-*-src.tar.gz
 hydra/hydra-*.tar.gz
