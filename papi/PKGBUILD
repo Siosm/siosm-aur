@@ -1,0 +1,37 @@
+# Contributor: Jed Brown <jed@59A2.org>
+# Contributor: Timothée Ravier <tim@siosm.fr>
+
+pkgname=papi
+pkgver=5.1.0.2
+pkgrel=1
+pkgdesc="Performance Application Programming Interface"
+arch=(x86_64 i686)
+url="http://icl.cs.utk.edu/papi/"
+license=('BSD')
+depends=(glibc linux-api-headers)
+source=(http://icl.cs.utk.edu/projects/papi/downloads/${pkgname}-${pkgver}.tar.gz)
+sha256sums=('141fd3dbeb32120ba8ca5f6a64250c22167b5224457f8ea1c3f28c8774468a1c')
+
+build() {
+  cd ${srcdir}/${pkgname}-*/src
+
+  # Makefiles are broken for parallel make
+  unset MAKEFLAGS
+
+  # Configure has a problem detecting dlopen()
+  ./configure --prefix=/usr \
+              --mandir=/usr/share/man \
+              --with-perf-events \
+              LDFLAGS="${LDFLAGS} -Wl,--no-as-needed"
+
+  make
+}
+
+package() {
+  cd ${srcdir}/${pkgname}-*/src
+
+  make DESTDIR=${pkgdir} install
+
+  chmod 644 ${pkgdir}/usr/share/papi/papi_events.csv
+  install -D ${srcdir}/${pkgname}-*/LICENSE.txt ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
+}
