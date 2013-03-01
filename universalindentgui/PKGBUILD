@@ -1,0 +1,31 @@
+# Maintainer: Sébastien Dumont <sdumont@masteri2l.org>
+# Contributor: Timothée Ravier <tim@siosm.fr>
+
+pkgname=universalindentgui
+pkgver=1.2.0
+pkgrel=2
+pkgdesc="A GUI for GNU Indent, Uncrustify, Artistic Styler, PHP Stylist, Ruby Beautify, HTML Tidy and many other"
+url="http://universalindent.sourceforge.net/"
+arch=('i686' 'x86_64')
+license=('GPL')
+depends=('qt4' 'qscintilla')
+optdepends=('astyle: a free, fast and small automatic formatter for C, C++, C# and Java'
+            'ident: the GNU pretty-printer'
+            'tidyhtml: a tool to tidy down your HTML code'
+            'uncrustify: source code beautifier for C-like languages')
+source=(http://download.sourceforge.net/sourceforge/universalindent/${pkgname}-${pkgver}.tar.gz)
+sha1sums=('b68cf96e18b75def89e70b3b65ca7d07d7f2033d')
+
+build() {
+	cd ${srcdir}/${pkgname}-${pkgver}
+
+	qmake-qt4 UniversalIndentGUI.pro
+
+	make
+}
+
+package() {
+	cd ${srcdir}/${pkgname}-${pkgver}
+
+	make INSTALL_ROOT=${pkgdir} install
+}
