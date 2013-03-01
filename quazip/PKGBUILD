@@ -1,0 +1,31 @@
+# Maintainer: trya <tryagainprod@gmail.com>
+# Contributor: Timothée Ravier <tim@siosm.fr>
+
+pkgname=quazip
+pkgver=0.5
+pkgrel=2
+pkgdesc="C++ wrapper for the Gilles Vollant's ZIP/UNZIP C package"
+url="http://sourceforge.net/projects/quazip/"
+arch=('i686' 'x86_64')
+depends=('qt4')
+source=(http://downloads.sourceforge.net/project/quazip/quazip/${pkgver}/${pkgname}-${pkgver}.tar.gz)
+license=('LGPL')
+md5sums=('ab0763709c7e6863b30ffd018397a6d3')
+sha256sums=('fdafaef0d93a1301dce5fd6e2e437e0b5cf04c6b89469a32116c75c5d5429ab7')
+
+build() {
+  cd ${srcdir}/${pkgname}-${pkgver}/${pkgname}
+
+  qmake-qt4 PREFIX=${pkgdir}/usr CONFIG+=statliclib
+  make
+  make staticlib
+}
+
+package() {
+  cd ${srcdir}/${pkgname}-${pkgver}/${pkgname}
+
+  make install
+
+  install -m644 libquazip.a ${pkgdir}/usr/lib
+  install -Dm644 ../FindQuaZip.cmake ${pkgdir}/usr/share/apps/cmake/modules/FindQuaZip.cmake
+}
