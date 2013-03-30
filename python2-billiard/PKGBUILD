@@ -1,0 +1,22 @@
+# Maintainer: Benjamin A. Shelton <zancarius@gmail.com>
+# Source: https://github.com/zancarius/archlinux-pkgbuilds
+
+pkgname=python2-billiard
+pkgver=2.7.3.23
+pkgrel=1
+pkgdesc="Python multiprocessing fork with improvements and bugfixes."
+arch=('i386' 'x86_64')
+url="http://pypi.python.org/pypi/billiard"
+license=(BSD)
+depends=(python2)
+makedepends=(python2-distribute)
+source=("http://pypi.python.org/packages/source/b/billiard/billiard-${pkgver}.tar.gz")
+md5sums=(1ccdd01abc99b1620320c7176bbd546e)
+
+package () {
+    cd "${srcdir}"/billiard-${pkgver}
+
+    python2 setup.py install --root="${pkgdir}" --optimize=1
+
+    install -Dm0664 "${srcdir}"/billiard-${pkgver}/LICENSE.txt "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
+}
