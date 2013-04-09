@@ -17,6 +17,7 @@ jupiter/jupiter-*.noarch.rpm
 k9copy/k9copy-*.tar.gz
 kdeplasma-addons-applets-veromix/*_veromix.plasmoid
 kwooty/kwooty-*.tar.gz
+leselys-git/leselys
 libegl-wayland/LICENSE
 libegl-wayland/MesaLib-*.tar.bz2
 libre/re-*.tar.gz
