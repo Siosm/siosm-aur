@@ -1,0 +1,29 @@
+# Contributor: Alexander Rødseth <rodseth@gmail.com>
+# Contributor: Timothée Ravier <tim@siosm.fr>
+
+pkgname=multipath-tools-git
+pkgver=20120906
+pkgrel=1
+pkgdesc="Tools to drive the Device Mapper multipathing driver (contains kpartx)"
+url="http://christophe.varoqui.free.fr/"
+arch=('x86_64' 'i686')
+license=('GPL2')
+depends=('libaio' 'device-mapper')
+makedepends=('git' 'setconf')
+options=(!emptydirs)
+source=("${pkgname}::git+http://git.opensvc.com/multipath-tools/.git")
+md5sums=('SKIP')
+
+build() {
+  cd ${pkgname}
+  setconf Makefile.inc GZIP '/usr/bin/gzip -9 -c'
+  make
+}
+
+package() {
+  cd ${pkgname}
+  make LIB="/usr/lib" DESTDIR="${pkgdir}" install
+  install -Dm644 COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/COPYING
+}
+
+# vim:set ts=2 sw=2 et:
