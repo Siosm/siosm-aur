@@ -1,0 +1,34 @@
+# $Id: PKGBUILD 79923 2012-11-14 19:40:49Z jlichtblau $
+# Maintainer: Jaroslav Lichtblau <dragonlord@aur.archlinux.org>
+# Contributor: Geoffroy Carrier <geoffroy@archlinux.org>
+# Contributor: Joël Schaerer <joel.schaerer@laposte.net>
+# Contributor: Daniel J Griffiths <ghost1227@archlinux.us>
+
+pkgname=autojump
+pkgver=21.5.1
+pkgrel=1
+pkgdesc="A faster way to navigate your filesystem from the command line"
+arch=('any')
+url="http://wiki.github.com/joelthelion/autojump"
+license=('GPL3')
+depends=('bash' 'python2')
+install=${pkgname}.install
+source=(https://github.com/joelthelion/${pkgname}/archive/release-v${pkgver}.tar.gz)
+sha256sums=('d04fd35c7c808bb8013cd17b7d6ccf69ed008de34d67f0006fdb2ff2abdfbec0')
+
+# I'm not sure moving to python3 is a good idea as long as
+# https://bugs.archlinux.org/task/33639 remains unanswered.
+prepare() {
+  cd ${pkgname}-release-v${pkgver}
+  sed -i 's:/env python:/python2:g' bin/${pkgname}
+}
+
+package() {
+  cd ${pkgname}-release-v${pkgver}
+  ./install.sh --global --destdir "${pkgdir}"
+  cd "${pkgdir}"
+  install -d -m 755 usr/share/zsh/functions/Completion/Linux/
+  mv _j usr/share/zsh/functions/Completion/Linux/
+}
+
+# vim: ft=sh syn=sh

@@ -1,0 +1,4 @@
+post_install() {
+  echo " > Add this line to your ~/.bashrc if you're not sourcing /etc/profile:"
+  echo " > [[ -s /etc/profile.d/autojump.sh ]] && . /etc/profile.d/autojump.sh"
+}
