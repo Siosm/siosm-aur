@@ -3,7 +3,7 @@
 
 pkgname=kwooty
 pkgver=1.0.1
-pkgrel=1
+pkgrel=2
 pkgdesc="A friendly nzb usenet binary downloader for KDE4."
 arch=('i686' 'x86_64')
 url="http://kwooty.sourceforge.net/"
@@ -19,13 +19,11 @@ sha1sums=('5a6b2d517af66f060e248f540088e1736f71251f')
 
 build() {
 	cd $pkgname-$pkgver
-	mkdir -p build
-	cd build
-	cmake .. -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix`
+	cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix`
 	make
 }
 
 package() {
-	cd $pkgname-$pkgver/build
+	cd $pkgname-$pkgver
 	make DESTDIR="$pkgdir" install
 }
