@@ -5,7 +5,7 @@
 # Contributor: Daniel J Griffiths <ghost1227@archlinux.us>
 
 pkgname=autojump
-pkgver=21.5.1
+pkgver=21.5.8
 pkgrel=1
 pkgdesc="A faster way to navigate your filesystem from the command line"
 arch=('any')
@@ -14,7 +14,7 @@ license=('GPL3')
 depends=('bash' 'python2')
 install=${pkgname}.install
 source=(https://github.com/joelthelion/${pkgname}/archive/release-v${pkgver}.tar.gz)
-sha256sums=('d04fd35c7c808bb8013cd17b7d6ccf69ed008de34d67f0006fdb2ff2abdfbec0')
+sha256sums=('4e18585aac319da1c900f0f022a4fe8ce3e21257d440c034d7abf29ed42d4e1e')
 
 # I'm not sure moving to python3 is a good idea as long as
 # https://bugs.archlinux.org/task/33639 remains unanswered.
@@ -26,9 +26,6 @@ prepare() {
 package() {
   cd ${pkgname}-release-v${pkgver}
   ./install.sh --global --destdir "${pkgdir}"
-  cd "${pkgdir}"
-  install -d -m 755 usr/share/zsh/functions/Completion/Linux/
-  mv _j usr/share/zsh/functions/Completion/Linux/
 }
 
 # vim: ft=sh syn=sh
