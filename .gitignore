@@ -22,6 +22,7 @@ leselys-git/leselys
 libegl-wayland/LICENSE
 libegl-wayland/MesaLib-*.tar.bz2
 libre/re-*.tar.gz
+lua51-event/luaevent-*.tar.gz
 magicpoint-snapshot/mgp-snap-*.tar.gz
 magicpoint/magicpoint-*.tar.gz
 makepasswd/makepasswd_*.orig.tar.gz
