@@ -1,0 +1,54 @@
+# Maintainer: sergej
+# Contributor: Timothée Ravier <tim@siosm.fr>
+
+pkgname=mozilla-firefox-sync-server-hg
+pkgver=543.41f469aa678c
+pkgrel=1
+pkgdesc="Mozilla Sync Server for built-in Firefox Sync"
+arch=('i686' 'x86_64')
+url="http://docs.services.mozilla.com/howtos/run-sync.html"
+license=('GPL')
+depends=('python2-virtualenv' 'sqlite')
+makedepends=('mercurial')
+options=(!debug)
+source=('hg+https://hg.mozilla.org/services/server-full'
+        'ffsync.service')
+sha256sums=('SKIP'
+            'd2cfaf6215d09ff15de6ff320bd40a5157b95d4d4676656a901bc6c765bd30b6')
+backup=(opt/mozilla-firefox-sync-server/development.ini
+        opt/mozilla-firefox-sync-server/etc/sync.conf)
+
+_reponame="server-full"
+
+pkgver() {
+  cd ${_reponame}
+  echo $(hg identify -n).$(hg identify -i)
+}
+
+build() {
+  cd ${_reponame}
+  make build VIRTUALENV=virtualenv2
+
+  # Install gunicorn to use with nginx
+  bin/easy_install gunicorn
+
+  # There is no install rule in the Makefile, so let's do some cleaning
+  rm -rf .hg .hgignore .hgtags \
+    _build.py build.py CENTOS.txt dev-reqs.txt Makefile \
+    tests tests*.ini tools \
+    bin/build* bin/easy_install* bin/pip* bin/pypi2rpm.py
+
+  # Manually fix install path
+  find . -type f -exec sed -i "s|${srcdir}/server-full|/opt/mozilla-firefox-sync-server|g" {} \;
+}
+
+package() {
+  install -Dm 644 ffsync.service "${pkgdir}"/usr/lib/systemd/system/ffsync.service
+
+  install -dm 755 "${pkgdir}"/opt/mozilla-firefox-sync-server
+
+  cd ${_reponame}
+  cp -a * "${pkgdir}"/opt/mozilla-firefox-sync-server
+}
+
+# vim: ft=sh syn=sh
