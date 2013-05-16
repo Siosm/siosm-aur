@@ -4,7 +4,7 @@
 
 pkgname=python2-anyjson
 pkgver=0.3.3
-pkgrel=3
+pkgrel=4
 pkgdesc="Wraps the best available JSON implementation available in a common interface."
 arch=(any)
 url="http://pypi.python.org/pypi/anyjson"
@@ -15,8 +15,9 @@ source=("http://pypi.python.org/packages/source/a/anyjson/anyjson-${pkgver}.tar.
 md5sums=(2ea28d6ec311aeeebaf993cb3008b27c)
 
 package () {
-    cd "${srcdir}"/anyjson-${pkgver}
-
-    python2 setup.py install --root="${pkgdir}" --optimize=1
+  cd anyjson-${pkgver}
+  python2 setup.py install --root="${pkgdir}" --optimize=1
 
 }
+
+# vim: ft=sh syn=sh
