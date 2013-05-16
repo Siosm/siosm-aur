@@ -1,25 +1,26 @@
 # Maintainer: Xeross <contact@xeross.me>
+# Contributor: Timothée Ravier <tim@siosm.fr>
 
 pkgname=python2-amqp
-pkgver=1.0.9
-pkgrel=1
+pkgver=1.0.11
+pkgrel=2
 pkgdesc="Low-level AMQP client for Python (fork of amqplib)"
 arch=('any')
 url="https://github.com/celery/py-amqp/"
 license=("LGPL")
 depends=('python2>=2.6' 'setuptools')
 source=(https://pypi.python.org/packages/source/a/amqp/amqp-${pkgver}.tar.gz)
-md5sums=('19a1c9ecedab9c5258725a9fca75321b')
+sha256sums=('e26d184024262ac93ba1177217b9a48edba55c5a0a46f3cba35d35d498ebe784')
 
-build() {
-  cd "${srcdir}"/amqp-${pkgver}
-
+prepare() {
+  cd amqp-${pkgver}
   # replace /usr/bin/env python with python2
   find . -name '*.py' -exec sed -i -e '1 s/python\s*$/python2/' {} \;
 }
 
 package() {
-  cd "${srcdir}"/amqp-${pkgver}
-
+  cd amqp-${pkgver}
   python2 ./setup.py install --root="${pkgdir}" --prefix=/usr
 }
+
+# vim: ft=sh syn=sh
