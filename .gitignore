@@ -32,7 +32,10 @@ mozilla-firefox-sync-server-hg/server-full
 multipath-tools-git/multipath-tools-git
 netexpect-*.tar.bz2
 nmapsi4/nmapsi4-*.tar.xz
+ocsync/ocsync-*.tar.bz2
 otf-source-sans-pro/SourceSansPro_FontsOnly-*.zip
+owncloud-client/mirall-*.tar.bz2
+owncloud/owncloud-*.tar.bz2
 p0f/p0f-*.tgz
 package-query/package-query-*.tar.gz
 papi/papi-*.tar.gz
