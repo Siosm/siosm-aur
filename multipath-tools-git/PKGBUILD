@@ -2,7 +2,7 @@
 # Contributor: Timothée Ravier <tim@siosm.fr>
 
 pkgname=multipath-tools-git
-pkgver=20120906
+pkgver=0.4.9.425.g5ee9f71
 pkgrel=1
 pkgdesc="Tools to drive the Device Mapper multipathing driver (contains kpartx)"
 url="http://christophe.varoqui.free.fr/"
@@ -13,6 +13,16 @@ makedepends=('git' 'setconf')
 options=(!emptydirs)
 source=("${pkgname}::git+http://git.opensvc.com/multipath-tools/.git")
 md5sums=('SKIP')
+
+pkgver() {
+  cd ${pkgname}
+  git describe --tags | sed 's|-|.|g'
+}
+
+prepare() {
+  cd ${pkgname}
+  sed -i 's|/sbin|/usr/bin|g' Makefile.inc
+}
 
 build() {
   cd ${pkgname}
