@@ -16,7 +16,7 @@ _buildtype="Release"
 _name=mirall
 pkgname=owncloud-client
 pkgver=1.2.5
-pkgrel=1
+pkgrel=2
 pkgdesc="ownCloud client based on mirall"
 arch=('i686' 'x86_64')
 url="http://owncloud.org/"
@@ -27,10 +27,8 @@ provides=('mirall' 'owncloud-client')
 conflicts=('mirall-git')
 install=owncloud-client.install
 backup=('etc/owncloud-client/sync-exclude.lst')
-source=("http://download.owncloud.com/download/${_name}-${pkgver}.tar.bz2"
-        "${pkgname}.desktop")
-md5sums=('2279761b409238f5c92507ba8062be4a'
-         'e223d162626c2ff54efebaa90a182d81')
+source=("http://download.owncloud.com/download/${_name}-${pkgver}.tar.bz2")
+sha256sums=('ff3e45b6e681363eb435deed55cc654c903f04597270cb1b966b0ac8d72758b8')
 
 # Clean options array to strip pkg if release buildtype is chosen
 if [[ ${_buildtype} == "Release" ]] || [[ ${_buildtype} == "release" ]]; then
@@ -38,11 +36,7 @@ if [[ ${_buildtype} == "Release" ]] || [[ ${_buildtype} == "release" ]]; then
 fi
 
 build() {
-  if [[ -e ${_name}-${pkgver}-build ]]; then
-    rm -rf ${_name}-${pkgver}-build
-  fi
-  mkdir ${_name}-${pkgver}-build
-  cd ${_name}-${pkgver}-build
+  cd ${_name}-${pkgver}
 
   cmake -DQT_QMAKE_EXECUTABLE=qmake-qt4 \
         -DCMAKE_INSTALL_PREFIX=/usr \
@@ -55,7 +49,6 @@ build() {
 }
 
 package() {
-  cd ${_name}-${pkgver}-build
+  cd ${_name}-${pkgver}
   make DESTDIR="${pkgdir}" install
-  install -Dm644 "${srcdir}"/${pkgname}.desktop "${pkgdir}"/usr/share/applications/${pkgname}.desktop
 }
