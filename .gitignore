@@ -13,6 +13,7 @@ dnsenum/dnsenum*.tar.gz
 flacon/flacon-*.tgz
 flamerobin/flamerobin-*-src.tar.gz
 hydra/hydra-*.tar.gz
+isync-git/isync
 jitsi/jitsi-src-*-build.*.zip
 jupiter/jupiter-*.noarch.rpm
 k9copy/k9copy-*.tar.gz
