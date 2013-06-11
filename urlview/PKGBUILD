@@ -1,0 +1,37 @@
+# Maintainer: Jaroslav Lichtblau <dragonlord@aur.archlinux.org>
+
+pkgname=urlview
+pkgver=0.9
+pkgrel=8
+_patchlevel=18.1
+pkgdesc="A curses URL parser for text files"
+arch=('i686' 'x86_64')
+url="http://packages.qa.debian.org/u/urlview.html"
+license=('GPL')
+depends=('bash' 'ncurses')
+source=(http://ftp.debian.org/debian/pool/main/u/urlview/${pkgname}_${pkgver}.orig.tar.gz
+        http://ftp.debian.org/debian/pool/main/u/urlview/${pkgname}_${pkgver}-${_patchlevel}.diff.gz)
+sha256sums=('746ff540ccf601645f500ee7743f443caf987d6380e61e5249fc15f7a455ed42'
+            'c94c667334206de905399bf1b1ab6a0add080c520c2cdf650c16ac2d3b821ca4')
+
+prepare() {
+  cd ${pkgname}-${pkgver}.orig
+  patch -Np1 -i ${srcdir}/${pkgname}_${pkgver}-$_patchlevel.diff
+}
+
+build() {
+  cd ${pkgname}-${pkgver}.orig
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd ${pkgname}-${pkgver}.orig
+
+  install -dm 0755 "${pkgdir}"/usr/share/man/man1/ "${pkgdir}"/usr/bin
+
+  make prefix="${pkgdir}"/usr mandir="${pkgdir}"/usr/share/man install
+
+  install -D -m644 url_handler.sh "${pkgdir}"/etc/urlview/url_handler.sh
+  install -D -m644 sample.urlview "${pkgdir}"/etc/urlview/system.urlview
+}
