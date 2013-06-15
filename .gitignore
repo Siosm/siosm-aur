@@ -64,6 +64,7 @@ ruby-pg/pg-*.gem
 scapy/scapy-*.tar.gz
 sunvox/sunvox-*.zip
 ttf-source-sans-pro/SourceSansPro_FontsOnly-*.zip
+tuned-git/tuned
 twisted-web2/TwistedWeb2-*.tar.bz2
 universalindentgui/universalindentgui-*.tar.gz
 urlview/urlview_*.gz
