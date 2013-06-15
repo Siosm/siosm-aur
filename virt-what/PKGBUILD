@@ -1,0 +1,26 @@
+# Maintainer: Christian Hesse <mail@eworm.de>
+# Contributor: Thomas S Hatch <thatch45 (at) Gmail (dot) com>
+
+pkgname=virt-what
+pkgver=1.12
+pkgrel=2
+license=('GPL')
+arch=('i686' 'x86_64')
+depends=('dmidecode')
+pkgdesc="A small program that prints out a list of 'facts' about a virtual machine"
+url="http://people.redhat.com/~rjones/virt-what/"
+source=("http://people.redhat.com/~rjones/virt-what/files/${pkgname}-${pkgver}.tar.gz")
+
+build() {
+	cd ${pkgname}-${pkgver}
+	./configure
+	sed -i '/^sbindir/c sbindir = /usr/bin' Makefile
+	make
+}
+
+package() {
+	cd ${pkgname}-${pkgver}
+	make libexecdir=/usr/bin prefix=/usr DESTDIR="${pkgdir}" install
+}
+
+sha256sums=('2592082f5b2caa93d3967b7c275a3afabfe49de9f051fdf0da6ded59e2c11b1c')
