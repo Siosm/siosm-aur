@@ -1,0 +1,20 @@
+# Maintainer: Simon Zimmermann <simon@insmo.com>
+
+pkgname=pass
+pkgver=1.4.2
+pkgrel=12
+pkgdesc='Stores, retrieves, generates, and synchronizes passwords securely'
+url="http://zx2c4.com/projects/password-store/"
+provides=('pass')
+conficts=('pass-git')
+license='GPL2'
+arch=('any')
+depends=('xclip' 'bash' 'gnupg' 'pwgen' 'tree')
+optdepends=('git')
+source=(http://git.zx2c4.com/password-store/snapshot/password-store-${pkgver}.tar.xz)
+sha256sums=('a10a8016a3d6bb32891a9a4086ac0a049587db1a55c1ac3b431c66189bc1a302')
+
+package() {
+    cd password-store-${pkgver}
+    make DESTDIR="${pkgdir}" install
+}
