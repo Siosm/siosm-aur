@@ -31,7 +31,7 @@ magicpoint/magicpoint-*.tar.gz
 makepasswd/makepasswd_*.orig.tar.gz
 mdk3/mdk3-*.tar.bz2
 metasploit/framework-*.tar.bz2
-mozilla-firefox-sync-server-hg/server-full
+mozilla-firefox-sync-server-hg/mozilla-firefox-sync-server-hg/
 multipath-tools-git/multipath-tools-git
 nepomukshell-git/nepomukshell
 netexpect-*.tar.bz2
