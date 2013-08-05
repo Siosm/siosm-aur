@@ -15,8 +15,6 @@ flacon/flacon-*.tgz
 flamerobin/flamerobin-*-src.tar.gz
 hydra/hydra-*.tar.gz
 isync-git/isync
-jitsi/jitsi-src-*-build.*.zip
-jupiter/jupiter-*.noarch.rpm
 k9copy/k9copy-*.tar.gz
 kdeplasma-addons-applets-veromix/*_veromix.plasmoid
 kwooty/kwooty-*.tar.gz
@@ -28,12 +26,9 @@ libre/re-*.tar.gz
 lua51-event/luaevent-*.tar.gz
 magicpoint-snapshot/mgp-snap-*.tar.gz
 magicpoint/magicpoint-*.tar.gz
-makepasswd/makepasswd_*.orig.tar.gz
 mdk3/mdk3-*.tar.bz2
-metasploit/framework-*.tar.bz2
 mozilla-firefox-sync-server-hg/mozilla-firefox-sync-server-hg/
 multipath-tools-git/multipath-tools-git
-nepomukshell-git/nepomukshell
 netexpect-*.tar.bz2
 nmapsi4/nmapsi4-*.tar.xz
 ocsync/ocsync-*.tar.bz2
@@ -42,7 +37,6 @@ owncloud-client/mirall-*.tar.bz2
 owncloud/owncloud-*.tar.bz2
 pass/password-store-*.tar.xz
 p0f/p0f-*.tgz
-package-query/package-query-*.tar.gz
 papi/papi-*.tar.gz
 paros/paros-*-unix.zip
 pdftk-bin/pdftk_*_amd64.deb
@@ -61,7 +55,6 @@ python2-kombu/kombu-*.tar.gz
 python2-slip/python-slip-*.tar.bz2
 quazip/quazip-*.tar.gz
 qxmpp/qxmpp-*.tar.gz
-razor-qt/razorqt-*.tar.bz2
 restund/restund-*.tar.gz
 ruby-bundler/bundler-*.gem
 ruby-msgpack/msgpack-*.gem
@@ -75,7 +68,5 @@ universalindentgui/universalindentgui-*.tar.gz
 urlview/urlview_*.gz
 virt-what/virt-what-*.tar.gz
 volatility/volatility-*.tar.gz
-wireshark-editor/wireshark-*.tar.bz2
 wt-lite/wt-*.tar.gz
-yaourt/yaourt-*.tar.gz
 
