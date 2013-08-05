@@ -19,8 +19,6 @@ k9copy/k9copy-*.tar.gz
 kdeplasma-addons-applets-veromix/*_veromix.plasmoid
 kwooty/kwooty-*.tar.gz
 leselys-git/leselys
-libegl-wayland/LICENSE
-libegl-wayland/MesaLib-*.tar.bz2
 libgcj/libgcj14_*_amd64.deb
 libre/re-*.tar.gz
 lua51-event/luaevent-*.tar.gz
@@ -32,13 +30,12 @@ multipath-tools-git/multipath-tools-git
 netexpect-*.tar.bz2
 nmapsi4/nmapsi4-*.tar.xz
 ocsync/ocsync-*.tar.bz2
-otf-source-sans-pro/SourceSansPro_FontsOnly-*.zip
 owncloud-client/mirall-*.tar.bz2
 owncloud/owncloud-*.tar.bz2
-pass/password-store-*.tar.xz
 p0f/p0f-*.tgz
 papi/papi-*.tar.gz
 paros/paros-*-unix.zip
+pass/password-store-*.tar.xz
 pdftk-bin/pdftk_*_amd64.deb
 perl-net-netmask/Net-Netmask-*.tar.gz
 perl-xml-dom/XML-DOM-*.tar.gz
@@ -61,7 +58,6 @@ ruby-msgpack/msgpack-*.gem
 ruby-pg/pg-*.gem
 scapy/scapy-*.tar.gz
 sunvox/sunvox-*.zip
-ttf-source-sans-pro/SourceSansPro_FontsOnly-*.zip
 tuned-git/tuned
 twisted-web2/TwistedWeb2-*.tar.bz2
 universalindentgui/universalindentgui-*.tar.gz
