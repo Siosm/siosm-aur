@@ -23,6 +23,7 @@ kwooty/kwooty-*.tar.gz
 leselys-git/leselys
 libegl-wayland/LICENSE
 libegl-wayland/MesaLib-*.tar.bz2
+libgcj/libgcj14_*_amd64.deb
 libre/re-*.tar.gz
 lua51-event/luaevent-*.tar.gz
 magicpoint-snapshot/mgp-snap-*.tar.gz
@@ -44,6 +45,7 @@ p0f/p0f-*.tgz
 package-query/package-query-*.tar.gz
 papi/papi-*.tar.gz
 paros/paros-*-unix.zip
+pdftk-bin/pdftk_*_amd64.deb
 perl-net-netmask/Net-Netmask-*.tar.gz
 perl-xml-dom/XML-DOM-*.tar.gz
 proot/proot-*.tar.gz

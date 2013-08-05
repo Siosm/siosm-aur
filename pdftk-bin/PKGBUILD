@@ -1,0 +1,33 @@
+# Maintainer: Yannik Stein <yannik.stein [at] gmail.com>
+# Contributors: Dan Serban, flying-sheep
+# Submitter: Liu Chang <goduck777@gmail.com>
+
+pkgname=pdftk-bin
+pkgver=2.01_1
+pkgrel=1
+pkgdesc="Swiss army knife for PDFs. Built from binary executables available in Debian repositories"
+url='http://www.pdfhacks.com/pdftk'
+arch=('i686' 'x86_64')
+license=('GPL')
+depends=('libgcj')
+provides=('pdftk')
+conflicts=('pdftk' 'pdfchain-all-inclusive')
+
+if [ $CARCH = 'i686' ]; then
+  _DEBARCH=i386
+  md5sums=(ca4e27ddd81e5243ce5a836a2ae87fd8)
+else
+  _DEBARCH=amd64
+  md5sums=(2b4001e9e234292c1c86836ff3dd03de)
+  sha256sums=('')
+fi
+source=(http://ftp.de.debian.org/debian/pool/main/p/pdftk/pdftk_${pkgver//_/-}_${_DEBARCH}.deb)
+
+build() {
+  tar xf data.tar.gz
+}
+
+package() {
+  cp -r usr "${pkgdir}"
+}
+
