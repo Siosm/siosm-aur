@@ -1,10 +1,11 @@
+# Maintainer: Miguel Revilla <yo@miguelrevilla.com>
 # Contributor: Alexander Rødseth <rodseth@gmail.com>
 # Contributor: Timothée Ravier <tim@siosm.fr>
 
 pkgname=multipath-tools-git
-pkgver=0.4.9.425.g5ee9f71
+pkgver=0.4.9.459.g81895af
 pkgrel=1
-pkgdesc="Tools to drive the Device Mapper multipathing driver (contains kpartx)"
+pkgdesc='Tools to drive the Device Mapper multipathing driver (contains kpartx)'
 url="http://christophe.varoqui.free.fr/"
 arch=('x86_64' 'i686')
 license=('GPL2')
@@ -12,7 +13,7 @@ depends=('libaio' 'device-mapper')
 makedepends=('git' 'setconf')
 options=(!emptydirs)
 source=("${pkgname}::git+http://git.opensvc.com/multipath-tools/.git")
-md5sums=('SKIP')
+sha256sums=('SKIP')
 
 pkgver() {
   cd ${pkgname}
@@ -21,7 +22,10 @@ pkgver() {
 
 prepare() {
   cd ${pkgname}
+  sed -i 's|LIB=lib|LIB=usr/lib|g' Makefile.inc
   sed -i 's|/sbin|/usr/bin|g' Makefile.inc
+  sed -i 's|${prefix}/lib/udev|${prefix}/usr/lib/udev|g' Makefile.inc
+  sed -i 's|$(prefix)/lib/systemd/system|$(prefix)/usr/lib/systemd/system|g' Makefile.inc
 }
 
 build() {
@@ -34,6 +38,9 @@ package() {
   cd ${pkgname}
   make LIB="/usr/lib" DESTDIR="${pkgdir}" install
   install -Dm644 COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/COPYING
+  cd "${pkgdir}"/usr/lib
+  rm libmpathpersist.so
+  ln -s libmpathpersist.so.0 libmpathpersist.so
 }
 
 # vim:set ts=2 sw=2 et:
