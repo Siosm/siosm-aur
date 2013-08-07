@@ -13,6 +13,7 @@ dfc/dfc-*.tar.gz
 dnsenum/dnsenum*.tar.gz
 flacon/flacon-*.tgz
 flamerobin/flamerobin-*-src.tar.gz
+gitolite-git/gitolite-git
 hydra/hydra-*.tar.gz
 isync-git/isync
 k9copy/k9copy-*.tar.gz
