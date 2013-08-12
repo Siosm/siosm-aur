@@ -2,7 +2,7 @@
 # Based on owncloud-git PKGBUILD by Alexander Ovsyannikov
 
 pkgname=owncloud
-pkgver=5.0.9
+pkgver=5.0.10
 pkgrel=1
 pkgdesc='Cloud server to store your files centrally on a hardware controlled by you'
 arch=('any')
@@ -18,7 +18,7 @@ source=("http://download.owncloud.org/community/${pkgname}-${pkgver}.tar.bz2"
         'owncloud.conf')
 backup=('etc/httpd/conf/extra/owncloud.conf')
 install=owncloud.install
-sha256sums=('67949a29644468a7cb51c83ffd620bb2093ba02420fb789135161758ccfbf1ff'
+sha256sums=('23dea0c7c66416e21e87097b611fefe961d9bd757b58a7eccdd70bd1a6c46bf7'
             'cd63cae0003845c23a95d3347848787107cef1e992705c18c3b125180b32fea4')
 
 package() {
