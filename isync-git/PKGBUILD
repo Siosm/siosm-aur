@@ -5,38 +5,38 @@
 # Previous Contributor: Leslie P. Polzer <polzer@gnu.org>
 
 pkgname=isync-git
-_gitname=isync
-pkgver=1.1.0.496.ad09f23
+pkgver=1.1.0.507.b1ff34d
 pkgrel=1
 pkgdesc="IMAP mail synchronizer for offline/batch mail editing"
-url="http://isync.sourceforge.net"
+url='http://isync.sourceforge.net'
 arch=('i686' 'x86_64')
 license=('GPL')
+makedepends=('perl-timedate')
 depends=('openssl')
 conflicts=('isync')
 replaces=('isync')
-source=('git://isync.git.sourceforge.net/gitroot/isync/isync')
+source=("${pkgname}::git://git.code.sf.net/p/isync/isync")
 sha256sums=('SKIP')
 
 pkgver() {
-  cd ${_gitname}
+  cd ${pkgname}
   echo -n $(grep -m 1 -o -E "[0-9.]*" configure.ac)
   echo '.'$(git rev-list --count HEAD).$(git rev-parse --short HEAD)
 }
 
 prepare() {
-  cd ${_gitname}
+  cd ${pkgname}
   ./autogen.sh
 }
 
 build() {
-  cd ${_gitname}
+  cd ${pkgname}
   ./configure --prefix=/usr
   make
 }
 
 package() {
-  cd ${_gitname}
+  cd ${pkgname}
   make DESTDIR="${pkgdir}" install
 }
 
