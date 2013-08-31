@@ -3,9 +3,9 @@
 pkgname=cower
 pkgver=9
 pkgrel=1
-pkgdesc="A simple AUR agent with a pretentious name"
+pkgdesc="Simple AUR agent with a pretentious name"
 arch=('i686' 'x86_64')
-url="http://github.com/falconindy/cower"
+url='http://github.com/falconindy/cower'
 license=('MIT')
 depends=('curl' 'yajl' 'pacman')
 makedepends=('perl')
@@ -14,11 +14,11 @@ md5sums=('9c56023b7b50d6eb964d602924f54e9a'
          'SKIP')
 
 build() {
-  make -C "${srcdir}"/${pkgname}-${pkgver}
+  make -C ${pkgname}-${pkgver}
 }
 
 package() {
-  make -C "${srcdir}"/${pkgname}-${pkgver} PREFIX=/usr DESTDIR="${pkgdir}" install
+  make -C ${pkgname}-${pkgver} PREFIX=/usr DESTDIR="${pkgdir}" install
 }
 
 # vim: ft=sh syn=sh
