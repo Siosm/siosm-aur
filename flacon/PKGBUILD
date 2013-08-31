@@ -1,34 +1,38 @@
+# Maintainer: satanselbow <igdfpm@gmail.com>
 # Contributor: Artem Sereda <overmind88@gmail.com>
+
 pkgname=flacon
-pkgver=0.7.2
+pkgver=0.8.0
 pkgrel=1
 pkgdesc="Extracts individual tracks from one big audio file containing the \
- entire album of music and saves them as separate audio files."
+entire album of music and saves them as separate audio files"
 arch=('i686' 'x86_64')
-url="http://code.google.com/p/flacon/"
+url='http://code.google.com/p/flacon/'
 license=('GPL')
-depends=('python2' 'python2-qt' 'python2-chardet' 'flac' 'shntool' 'hicolor-icon-theme')
+depends=('python2' 'python2-pyqt' 'python2-chardet' 'flac' 'shntool'
+         'hicolor-icon-theme')
 optdepends=('vorbis-tools: For OGG support'
-  'mac: For APE support'
-  'wavpack: For WavPack support'
-  'ttaenc: For TrueAudio support'
-  'lame: For MP3 support'
-  'mp3gain: For MP3 Replay Gain support'
-  'vorbisgain: For OGG Replay Gain support')
+            'mac: For APE support'
+            'wavpack: For WavPack support'
+            'ttaenc: For TrueAudio support'
+            'lame: For MP3 support'
+            'mp3gain: For MP3 Replay Gain support'
+            'vorbisgain: For OGG Replay Gain support')
+source=("http://flacon.googlecode.com/files/${pkgname}-${pkgver}.tgz")
+sha256sums=('d2889b364ea49b19c400ce8081d829e5a37149dfdcb82d55f6ab453b679d1f85')
 
-source=(http://flacon.googlecode.com/files/$pkgname-$pkgver.tgz)
-
-build() {
+prepare() {
   export PYTHON=`which python2`
-  cd "$srcdir/$pkgname-$pkgver"
- sed -i -e "s|#![ ]*/usr/bin/python$|#!/usr/bin/python2|" \
+  cd ${pkgname}-${pkgver}
+  sed -i -e "s|#![ ]*/usr/bin/python$|#!/usr/bin/python2|" \
       -e "s|#![ ]*/usr/bin/env python$|#!/usr/bin/env python2|" \
       $(find . -name '*.py')
-  cd "$srcdir/$pkgname-$pkgver"
- sed -i -e "s|#![ ]*/usr/bin/python$|#!/usr/bin/python2|" \
+  sed -i -e "s|#![ ]*/usr/bin/python$|#!/usr/bin/python2|" \
       -e "s|#![ ]*/usr/bin/env python$|#!/usr/bin/env python2|" misc/flacon
   sed -i s/python/python2/ Makefile
-  make DESTDIR=${pkgdir} install
 }
 
-md5sums=('58d138d0e5f432f9e852f5ff38962c35')
+package() {
+  cd ${pkgname}-${pkgver}
+  make DESTDIR="${pkgdir}" install
+}
