@@ -1,49 +1,31 @@
 # Maintainer: Kuba Serafinowski <zizzfizzix(at)gmail(dot)com>
-# https://github.com/zizzfizzix/pkgbuilds
-
-##############################################################
-#### The section below can be adjusted to suit your needs ####
-##############################################################
-
-# What type of build do you want?
-# See http://techbase.kde.org/Development/CMake/Addons_for_KDE#Buildtypes to check what is supported.
-# Default is RelWithDebInfo to help with debugging.
-
-_buildtype="Release"
-
-##############################################################
 
 pkgname=ocsync
-pkgver=0.70.7
+pkgver=0.90.0
 pkgrel=1
-pkgdesc="A file synchronizer especially designed for you, the normal user."
-arch=("i686" "x86_64")
-url="http://www.csync.org"
+pkgdesc="File synchronizer especially designed for you, the normal user"
+arch=('i686' 'x86_64')
+url='http://www.csync.org'
 license=('GPL2')
-depends=('sqlite3' 'iniparser' 'neon' 'smbclient' 'libssh')
+depends=('sqlite3' 'iniparser' 'neon' 'libssh')
 makedepends=('cmake')
-#optdepends=('samba: smb support' 'libssh: sftp support')
 provides=('csync' 'csync-owncloud')
 conflicts=('csync' 'csync-owncloud')
+backup=('etc/ocsync/ocsync.conf' 'etc/ocsync/ocsync_exclude.conf')
 source=("http://download.owncloud.com/download/${pkgname}-${pkgver}.tar.bz2")
-sha256sums=('571c7a822a8e30966c3a7e61a5218b49e8d52e70e8a8ec80d16db786d60bb324')
-
-# Clean options array to strip pkg if release buildtype is chosen
-if [[ ${_buildtype} == "Release" ]] || [[ ${_buildtype} == "release" ]]; then
-  options=()
-fi
+sha256sums=('4531d196637829284704ce29816b2f6f9f8e61ca8dd61e6743774d085392301c')
 
 build() {
-  if [[ -e ${pkgname}-${pkgver}-build ]]; then
-    rm -rf ${pkgname}-${pkgver}-build
-  fi
+  rm -rf ${pkgname}-${pkgver}-build
   mkdir ${pkgname}-${pkgver}-build
+
   cd ${pkgname}-${pkgver}-build
 
-  cmake -DCMAKE_BUILD_TYPE=${_buildtype} \
+  cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DSYSCONF_INSTALL_DIR=/etc \
         ../${pkgname}-${pkgver}
+
   make
 }
 
