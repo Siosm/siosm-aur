@@ -7,6 +7,7 @@ post_install() {
    echo "Include conf/extra/php5_module.conf"
    echo
    echo "Uncomment extensions gd.so intl.so iconv.so openssl.so xmlrpc.so"
-   echo "zip.so and either pdo_sqlite.so sqlite3.so (for the SQLite backend)"
-   echo "or mysqli.so pdo_mysql.so (for the MySQL backend) in /etc/php/php.ini"
+   echo "zip.so and either pdo_sqlite.so sqlite3.so (for the SQLite backend),"
+   echo "pdo_pgsql.so pgsql.so (for the PostgreSQL backend) or mysqli.so"
+   echo "pdo_mysql.so (for the MySQL backend) in /etc/php/php.ini"
 }
