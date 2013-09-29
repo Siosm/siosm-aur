@@ -1,7 +1,7 @@
 # Maintainer: Kuba Serafinowski <zizzfizzix(at)gmail(dot)com>
 
 pkgname=ocsync
-pkgver=0.90.0
+pkgver=0.90.2
 pkgrel=1
 pkgdesc="File synchronizer especially designed for you, the normal user"
 arch=('i686' 'x86_64')
@@ -13,7 +13,7 @@ provides=('csync' 'csync-owncloud')
 conflicts=('csync' 'csync-owncloud')
 backup=('etc/ocsync/ocsync.conf' 'etc/ocsync/ocsync_exclude.conf')
 source=("http://download.owncloud.com/download/${pkgname}-${pkgver}.tar.bz2")
-sha256sums=('4531d196637829284704ce29816b2f6f9f8e61ca8dd61e6743774d085392301c')
+sha256sums=('91359c7934cf23b5ac51f9cc329f6a2f8e7cb8a47d13619220cadf917f702a05')
 
 build() {
   rm -rf ${pkgname}-${pkgver}-build
