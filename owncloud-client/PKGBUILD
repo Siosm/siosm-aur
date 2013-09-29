@@ -2,7 +2,7 @@
 
 _name=mirall
 pkgname=owncloud-client
-pkgver=1.4.0
+pkgver=1.4.1
 pkgrel=1
 pkgdesc="ownCloud client based on mirall"
 arch=('i686' 'x86_64')
@@ -15,7 +15,7 @@ conflicts=('mirall-git')
 install=owncloud-client.install
 backup=('etc/ownCloud/sync-exclude.lst')
 source=("http://download.owncloud.com/download/${_name}-${pkgver}.tar.bz2")
-sha256sums=('8efd1d779c7c21cd50860aa74bffefad536df5637da4a59648ea39ce6b0a3737')
+sha256sums=('b51a0f7e637258f4d4769a3164f8dcd6e40914ee9dc76940766d3d63dfa3962b')
 
 build() {
   rm -rf ${_name}-${pkgver}-build
