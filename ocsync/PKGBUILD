@@ -1,10 +1,10 @@
 # Maintainer: Kuba Serafinowski <zizzfizzix(at)gmail(dot)com>
 
 pkgname=ocsync
-pkgver=0.90.2
+pkgver=0.90.4
 pkgrel=1
 pkgdesc="File synchronizer especially designed for you, the normal user"
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'armv7h')
 url='http://www.csync.org'
 license=('GPL2')
 depends=('sqlite3' 'iniparser' 'neon' 'libssh')
@@ -13,7 +13,7 @@ provides=('csync' 'csync-owncloud')
 conflicts=('csync' 'csync-owncloud')
 backup=('etc/ocsync/ocsync.conf' 'etc/ocsync/ocsync_exclude.conf')
 source=("http://download.owncloud.com/download/${pkgname}-${pkgver}.tar.bz2")
-sha256sums=('91359c7934cf23b5ac51f9cc329f6a2f8e7cb8a47d13619220cadf917f702a05')
+md5sums=('4724730cf7376983c06bc83133c06a3f')
 
 build() {
   rm -rf ${pkgname}-${pkgver}-build
