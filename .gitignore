@@ -10,6 +10,7 @@ pkg/
 alchemy/Alchemy-*.tar.gz
 cower/cower-*.tar.gz*
 dnsenum/dnsenum*.tar.gz
+envytools-git/envytools-git
 flacon/flacon-*.tgz
 flamerobin/flamerobin-*-src.tar.gz
 gitolite-git/gitolite-git
