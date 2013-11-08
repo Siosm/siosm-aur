@@ -1,13 +1,15 @@
 pkgname=ownCloud
 
 post_install() {
-   echo "Add the following lines into /etc/httpd/conf/httpd.conf:"
+   echo "In /etc/php/php.ini, uncomment extensions:"
+   echo "  * gd.so intl.so iconv.so openssl.so xmlrpc.so zip.so"
+   echo "and either:"
+   echo "  * pdo_sqlite.so sqlite3.so (for the SQLite backend);"
+   echo "  * pdo_pgsql.so pgsql.so (for the PostgreSQL backend);"
+   echo "  * pdo_mysql.so mysqli.so (for the MySQL backend)."
+   echo
+   echo "If using Apache, add the following lines into /etc/httpd/conf/httpd.conf:"
    echo "Include /etc/httpd/conf/extra/owncloud.conf"
    echo "LoadModule php5_module modules/libphp5.so"
    echo "Include conf/extra/php5_module.conf"
-   echo
-   echo "Uncomment extensions gd.so intl.so iconv.so openssl.so xmlrpc.so"
-   echo "zip.so and either pdo_sqlite.so sqlite3.so (for the SQLite backend),"
-   echo "pdo_pgsql.so pgsql.so (for the PostgreSQL backend) or mysqli.so"
-   echo "pdo_mysql.so (for the MySQL backend) in /etc/php/php.ini"
 }
