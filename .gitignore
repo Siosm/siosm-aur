@@ -48,7 +48,6 @@ python2-amqp/amqp-*.tar.gz
 python2-anyjson/anyjson-*.tar.gz
 python2-billiard/billiard-*.tar.gz
 python2-celery/celery-*.tar.gz
-python2-docopt/LICENSE-MIT
 python2-docopt/docopt-*.tar.gz
 python2-itsdangerous/itsdangerous-*.tar.gz
 python2-kombu/kombu-*.tar.gz
