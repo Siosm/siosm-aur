@@ -44,7 +44,6 @@ pdftk-bin/pdftk_*_amd64.deb
 perl-net-netmask/Net-Netmask-*.tar.gz
 perl-xml-dom/XML-DOM-*.tar.gz
 proot/proot-*.tar.gz
-python-bcrypt/py-bcrypt-0.2.tar.gz
 python2-amqp/amqp-*.tar.gz
 python2-anyjson/anyjson-*.tar.gz
 python2-billiard/billiard-*.tar.gz
@@ -53,6 +52,7 @@ python2-docopt/LICENSE-MIT
 python2-docopt/docopt-*.tar.gz
 python2-itsdangerous/itsdangerous-*.tar.gz
 python2-kombu/kombu-*.tar.gz
+python2-py-bcrypt/py-bcrypt-*.tar.gz
 python2-slip/python-slip-*.tar.bz2
 qtkeychain/qtkeychain-*.zip
 quazip/quazip-*.tar.gz
