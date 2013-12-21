@@ -33,6 +33,8 @@ mozilla-firefox-sync-server-hg/mozilla-firefox-sync-server-hg/
 multipath-tools-git/multipath-tools-git
 netexpect-*.tar.bz2
 nmapsi4/nmapsi4-*.tar.xz
+nouveau-fw/NVIDIA-Linux-x86-*.run
+nouveau-fw/extract_firmware.py
 ocsync/ocsync-*.tar.bz2
 owncloud-client/mirall-*.tar.bz2
 owncloud/owncloud-*.tar.bz2
