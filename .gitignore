@@ -18,12 +18,9 @@ hydra/hydra-*.tar.gz
 isync-git/isync-git
 k9copy/k9copy-*.tar.gz
 kdeplasma-addons-applets-veromix/*_veromix.plasmoid
-kdeplasma-applets-plasma-nm-git/plasma-nm
 kwooty/kwooty-*.tar.gz
 leselys-git/leselys-git/
 libgcj/libgcj14_*_amd64.deb
-libmm-qt-git/libmm-qt
-libnm-qt-git/libnm-qt
 libre/re-*.tar.gz
 lua51-event/luaevent-*.tar.gz
 magicpoint-snapshot/mgp-snap-*.tar.gz
