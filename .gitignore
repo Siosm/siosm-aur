@@ -23,6 +23,7 @@ leselys-git/leselys-git/
 libgcj/libgcj14_*_amd64.deb
 libre/re-*.tar.gz
 lua51-event/luaevent-*.tar.gz
+lua51-sec-prosody/luasec-prosody-*.tar.gz
 magicpoint-snapshot/mgp-snap-*.tar.gz
 magicpoint/magicpoint-*.tar.gz
 mdk3/mdk3-*.tar.bz2
@@ -43,6 +44,7 @@ pdftk-bin/pdftk_*_amd64.deb
 perl-net-netmask/Net-Netmask-*.tar.gz
 perl-xml-dom/XML-DOM-*.tar.gz
 proot/proot-*.tar.gz
+prosody/prosody-*.tar.gz*
 python2-amqp/amqp-*.tar.gz
 python2-anyjson/anyjson-*.tar.gz
 python2-billiard/billiard-*.tar.gz

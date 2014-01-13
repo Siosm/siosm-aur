@@ -1,0 +1,43 @@
+# Maintainer: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>
+# Contributor: Timothée Ravier <tim@siosm.fr>
+
+pkgname=lua51-sec-prosody
+pkgver=0.5.1
+pkgrel=1
+pkgdesc='Lua bindings for OpenSSL library to provide TLS/SSL communication'
+arch=('i686' 'x86_64')
+url="http://github.com/mwild1/luasec"
+license=('MIT')
+depends=('openssl' 'lua51' 'lua51-socket>=3.0rc1')
+conflicts=('lua51-sec')
+provides=('lua51-sec=2.1.0')
+source=("http://prosody.im/tmp/${pkgname/51-}-${pkgver}.tar.gz")
+#source=("http://prosody.im/tmp/${pkgname/51-}-${pkgver}.tar.gz"{,.asc})
+sha256sums=('2fd34cf9c59a6491937c98ba33921d4fc418b160c0c89545f7bae4f246280ad4')
+#            'SKIP')
+
+build() {
+	cd ${pkgname/51-}-${pkgver}
+
+	make \
+		INCDIR='-I. -I/usr/include/lua5.1' \
+		LUAPATH='/usr/share/lua/5.1' \
+		LUACPATH='/usr/lib/lua/5.1' \
+		LDFLAGS='-O1 --sort-common --as-needed -z relro -shared -fPIC -L./luasocket' \
+		linux
+}
+
+package() {
+	cd ${pkgname/51-}-${pkgver}
+
+	make \
+		INCDIR='-I. -I/usr/include/lua5.1' \
+		LUAPATH='/usr/share/lua/5.1' \
+		LUACPATH='/usr/lib/lua/5.1' \
+		DESTDIR="${pkgdir}" \
+		install
+
+	install -D -m0644 LICENSE "${pkgdir}"/usr/share/licenses/${pkgname}/LICENSE
+}
+
+# vim: ft=sh syn=sh
