@@ -5,6 +5,9 @@ pkg/
 *pkg.tar.xz.sig
 *src.tar.gz
 
+*-build.log
+*-package.log
+
 *~
 
 alchemy/Alchemy-*.tar.gz
