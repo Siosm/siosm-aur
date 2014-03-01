@@ -1,0 +1,12 @@
+[Unit]
+Description=wstunnel - server side
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Group=nobody
+ExecStart=/usr/bin/wstunnel -s 9022 -t 127.0.0.1:22
+
+[Install]
+WantedBy=multi-user.target

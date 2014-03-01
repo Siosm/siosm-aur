@@ -1,0 +1,21 @@
+# Maintainer: Timothée Ravier <tim@siosm.fr>
+
+pkgname=wstunnel
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Establish tcp tunnel over web socket connection - Node.js version"
+arch=('i686' 'x86_64')
+url='https://github.com/mhzed/wstunnel'
+license=('Custom')
+makedepends=('python2')
+depends=('nodejs')
+source=("https://registry.npmjs.org/${pkgname}/-/${pkgname}-${pkgver}.tgz"
+        "${pkgname}.service")
+sha256sums=('338bf202d5827bdd2fdfac4362283c6a90cb9eea7aa1cec84457de1d9d4c1560'
+            '766af298b222319e36a8a8b9eac5c60d0cad5a83a873bc6b976de733a56a650d')
+
+package() {
+    npm install -g --user root --prefix "${pkgdir}/usr" ${pkgname}-$pkgver.tgz
+
+    install -D ${pkgname}.service "${pkgdir}"/usr/lib/systemd/system/${pkgname}.service
+}
