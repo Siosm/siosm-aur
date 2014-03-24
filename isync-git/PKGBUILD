@@ -5,13 +5,14 @@
 # Previous Contributor: Leslie P. Polzer <polzer@gnu.org>
 
 pkgname=isync-git
-pkgver=1.1.0.507.b1ff34d
+pkgver=1.1.1.593.3161540
 pkgrel=1
 pkgdesc="IMAP mail synchronizer for offline/batch mail editing"
 url='http://isync.sourceforge.net'
 arch=('i686' 'x86_64')
 license=('GPL')
 makedepends=('perl-timedate')
+#'perl-datetime-format-dateparse'
 depends=('openssl')
 conflicts=('isync')
 replaces=('isync')
