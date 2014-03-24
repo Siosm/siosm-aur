@@ -11,6 +11,7 @@ pkg/
 *~
 
 alchemy/Alchemy-*.tar.gz
+automake/automake-*.tar.gz
 cower/cower-*.tar.gz*
 dnsenum/dnsenum*.tar.gz
 envytools-git/envytools-git
