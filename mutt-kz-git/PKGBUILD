@@ -1,0 +1,58 @@
+# Maintainer: neersighted <n@neersighted.com>
+# Contributor: boyska <piuttosto@logorroici.org>
+
+pkgname=mutt-kz-git
+pkgver=1.5.22.1.rc1.29.gbf395dc
+pkgrel=1
+pkgdesc='Small but powerful text-based mail client (experimental fork) (development version)'
+url='https://github.com/karelzak/mutt-kz'
+license=('GPL')
+source=('git://github.com/karelzak/mutt-kz.git'
+        'trash.patch::https://www.cs.oberlin.edu/~kuperman/help/code/patch-1.5.20.bk.trash_folder-purge_message.1.txt')
+sha256sums=('SKIP'
+            '7427138aadc09140e0c34f30bcf14aee9f9c2d20bb4e060fb6aff8e78c62130f')
+arch=('i686' 'x86_64')
+depends=('gdbm' 'gpgme' 'openssl>=0.9.8e' 'libsasl' 'mime-types' 'ncurses'
+         'notmuch' 'zlib')
+makedepends=('git' 'gnupg' 'libxslt')
+conflicts=('mutt')
+provides=('mutt')
+
+pkgver() {
+  cd mutt-kz
+  git describe --always | sed 's/^v//;s/-/./g'
+}
+
+prepare() {
+  cd mutt-kz
+  patch -p1 < ../trash.patch
+}
+
+build() {
+  cd mutt-kz
+ ./prepare \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --enable-debug \
+    --enable-gpgme \
+    --enable-hcache \
+    --enable-imap \
+    --enable-notmuch \
+    --enable-pgp \
+    --enable-pop \
+    --enable-smtp \
+    --with-idn \
+    --with-sasl \
+    --with-ssl=/usr
+  make
+}
+
+package() {
+  cd mutt-kz
+  make DESTDIR="${pkgdir}" install
+  cd "${pkgdir}"
+  # Provided by the mime-types package.
+  rm etc/mime.types
+}
+
+# vim: set ts=2 sw=2 et:

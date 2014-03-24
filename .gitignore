@@ -34,6 +34,8 @@ magicpoint/magicpoint-*.tar.gz
 mdk3/mdk3-*.tar.bz2
 mozilla-firefox-sync-server-hg/mozilla-firefox-sync-server-hg/
 multipath-tools-git/multipath-tools-git
+mutt-kz-git/mutt-kz/
+mutt-kz-git/trash.patch
 netexpect-*.tar.bz2
 nmapsi4/nmapsi4-*.tar.xz
 nouveau-fw/NVIDIA-Linux-x86-*.run
