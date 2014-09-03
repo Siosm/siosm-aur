@@ -1,0 +1,42 @@
+# Maintainer: wallnuss <v dot churavy at gmail dot com
+# Contributor: WonderWoofy <sugar.and.scruffy@gmail.com>
+
+pkgname=thermald
+_name=thermal_daemon
+pkgver=1.3
+_pkgver="${pkgver//_/-}"
+_srcdir="${_name}-${_pkgver}"
+pkgrel=2
+pkgdesc="The Linux Thermal Daemon program from 01.org"
+arch=('i686' 'x86_64')
+url="https://github.com/01org/thermal_daemon"
+license=('GPL2')
+makedepends=('systemd')
+depends=('dbus-glib>=0.94' 'libxml2>=2.4')
+backup=('etc/thermald/thermal-conf.xml')
+conflicts=('thermald')
+provides=('thermald')
+source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${_pkgver}.tar.gz"
+        'modules-load-thermald.conf')
+sha256sums=('c85c2e3400456302ee754a747e17a99871e3ddf3f0f82273de9ff6935d893af2'
+            '0155e1eb459306d251a5a049ffc6c11e144fa8caa75901ac5fa20bd52e05d515')
+
+build() {
+  cd "${_srcdir}"
+
+  ./autogen.sh
+  ./configure --prefix=/usr \
+              --sysconfdir=/etc \
+              --sbindir=/usr/bin
+  make
+}
+
+package() {
+  cd "${_srcdir}"
+  make DESTDIR="${pkgdir}" install
+  install -dm755 "${pkgdir}/usr/lib/modules-load.d"
+  install -m644 "${srcdir}/modules-load-thermald.conf" "${pkgdir}/usr/lib/modules-load.d/thermald.conf"
+
+  # Remove upstart
+  rm -rf "${pkgdir}/etc/init"
+}

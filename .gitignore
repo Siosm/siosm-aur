@@ -71,6 +71,7 @@ ruby-msgpack/msgpack-*.gem
 ruby-pg/pg-*.gem
 scapy/scapy-*.tar.gz
 sunvox/sunvox-*.zip
+thermald/thermald-*.tar.gz
 tuned-git/tuned-git
 twisted-web2/TwistedWeb2-*.tar.bz2
 universalindentgui/universalindentgui-*.tar.gz
