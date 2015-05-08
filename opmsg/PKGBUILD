@@ -1,0 +1,23 @@
+# Maintainer: Moritz Lipp <mail@mlq.me>
+
+pkgname=opmsg
+pkgver=0.11s
+_pkgver=rel-"${pkgver/./-}"
+pkgrel=1
+pkgdesc="opmsg message encryption"
+arch=('i686' 'x86_64')
+url='https://github.com/stealth/opmsg'
+license=('GPL3')
+depends=('openssl')
+source=("https://github.com/stealth/${pkgname}/archive/${_pkgver}.tar.gz")
+sha256sums=('d16a99d46f3d4ac44f205364465fdc7c2bf523ecb459356334990cdc422d180a')
+
+build() {
+	cd "${pkgname}-${_pkgver}"
+	make
+}
+
+package() {
+	cd "${pkgname}-${_pkgver}"
+	install -D -m755 opmsg "${pkgdir}/usr/bin/opmsg"
+}

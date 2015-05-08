@@ -1,0 +1,30 @@
+# Maintainer: Timothée Ravier <tim@siosm.fr>
+
+pkgname=opmsg-git
+pkgver=0.11s.r3.gc1810f9
+pkgrel=1
+pkgdesc="opmsg message encryption"
+arch=('i686' 'x86_64')
+url='https://github.com/stealth/opmsg'
+license=('GPL3')
+depends=('openssl')
+makedepends=('git')
+conflicts=('opmsg')
+provides=('opmsg')
+source=("${pkgname}::git+https://github.com/stealth/opmsg.git")
+sha256sums=('SKIP')
+
+pkgver() {
+	cd "${pkgname}"
+	git describe --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g' | sed 's/rel.//'
+}
+
+build() {
+	cd "${pkgname}"
+	make
+}
+
+package() {
+	cd "${pkgname}"
+	install -D -m755 opmsg "${pkgdir}/usr/bin/opmsg"
+}
