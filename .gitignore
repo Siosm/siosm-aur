@@ -11,6 +11,9 @@ pkg/
 
 *~
 
+.AURINFO
+.SRCINFO
+
 alchemy/Alchemy-*.tar.gz
 automake/automake-*.tar.gz
 cower/cower-*.tar.gz*
