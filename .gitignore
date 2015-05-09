@@ -18,6 +18,7 @@ alchemy/Alchemy-*.tar.gz
 automake/automake-*.tar.gz
 cower/cower-*.tar.gz*
 dnsenum/dnsenum*.tar.gz
+eg/eg-*.tar.gz
 envytools-git/envytools-git
 etherpad-lite/etherpad-lite-*.tar.gz
 flacon/flacon-*.tgz

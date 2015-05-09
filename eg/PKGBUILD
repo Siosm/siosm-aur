@@ -1,0 +1,20 @@
+# Maintainer: Étienne Deparis <etienne [at] depar.is>
+
+pkgname=eg
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='Useful examples at the command line'
+license=("MIT")
+url='https://github.com/srsudar/eg'
+arch=('any')
+depends=('python')
+makedepends=('python-setuptools')
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/srsudar/eg/archive/v${pkgver}.tar.gz")
+sha256sums=('864afea8a053713a8f59673425a998377066b52a9637314c2f0954cea229bbc8')
+#options=(!emptydirs)
+
+package() {
+  cd ${pkgname}-${pkgver}
+  python setup.py install --root="${pkgdir}"
+  install -Dm 0644 LICENSE.txt "${pkgdir}"/usr/share/licenses/eg/LICENSE
+}
