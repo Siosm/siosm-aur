@@ -1,0 +1,36 @@
+# Maintainer: Timothée Ravier <tim@siosm.fr>
+
+pkgname=kdbus-git
+_pkgname=kdbus
+pkgver=r3172.1f8cb1f
+pkgrel=1
+pkgdesc='Out-of-tree kdbus module'
+arch=('i686' 'x86_64')
+url='https://github.com/systemd/kdbus'
+depends=("linux=4.1.1")
+provides=('kdbus')
+conflicts=('kdbus')
+license=('LGPL2.1')
+options=(!strip)
+source=('git+https://github.com/systemd/kdbus.git')
+sha256sums=('SKIP')
+install='kdbus-git.install'
+
+pkgver() {
+	cd ${_pkgname}
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+build() {
+	cd ${_pkgname}
+	make
+	make -f Makefile.docs
+}
+
+package() {
+	cd ${_pkgname}
+	install -Dm 0755 ipc/kdbus/kdbus.ko "${pkgdir}"/usr/lib/modules/extramodules-4.1-ARCH/kernel/ipc/kdbus/kdbus.ko
+	install -dm 0755 "${pkgdir}"/usr/share/man/man7/
+	install -m 0644 Documentation/kdbus/kdbus*.7 "${pkgdir}"/usr/share/man/man7/
+	install -Dm 0644 include/uapi/linux/kdbus.h "${pkgdir}"/usr/include/kdbus/kdbus.h
+}
