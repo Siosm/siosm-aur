@@ -3,11 +3,12 @@
 pkgname=kdbus-git
 _pkgname=kdbus
 pkgver=r3172.1f8cb1f
-pkgrel=2
+pkgrel=3
 pkgdesc='Out-of-tree kdbus module'
 arch=('i686' 'x86_64')
 url='https://github.com/systemd/kdbus'
 depends=("linux=4.1.2-2")
+makedepends=('xmlto' 'docbook-xsl' 'git')
 provides=('kdbus')
 conflicts=('kdbus')
 license=('LGPL2.1')
